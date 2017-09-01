@@ -88,7 +88,7 @@ Get FormBuilder [here](https://github.com/dachcom-digital/pimcore-formbuilder).
             {% if value is not empty %}
                 <row>
                     <columns small="12" large="6">
-                        <strong>hahaha {{ field.email_label|default(field.label)|raw }}:</strong>
+                        <strong>{{ field.email_label|default(field.label)|raw }}:</strong>
                     </columns>
                     <columns small="12" large="6">
                         {{ value }}
