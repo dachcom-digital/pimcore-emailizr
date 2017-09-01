@@ -101,13 +101,13 @@ Get FormBuilder [here](https://github.com/dachcom-digital/pimcore-formbuilder).
 {% end_emailizr_inky %}
 ```
 
-3. **Optional**: Using context Server to modifiy mail parameter
+2. **Optional**: Using context Server to modifiy mail parameter
 
 Since you already have parsed all email templates via twig, everything should be fine. 
 It's possible, however, to modify the formdata via the content service:
 
 
-3.1. Set an Event Listener
+2.1. Set an Event Listener
 ```yaml
 services:
     app.event_listener.form_builder.pre_submit_email:
@@ -119,7 +119,7 @@ services:
 
 ```
 
-3.2 Submit Values to Emailizr Parser
+2.2 Submit Values to Emailizr Parser
 ```php
 <?php
 
