@@ -1,0 +1,36 @@
+services:
+
+    emailizr.library.inky:
+       class: Hampe\Inky\Inky
+       shared: false
+
+    emailizr.library.emogrifier:
+        class: Pelago\Emogrifier
+        shared: false
+
+    emailizr.parser.email.inky_parser:
+        class: EmailizrBundle\Parser\InkyParser
+        arguments:
+            - '@emailizr.library.inky'
+            - '@pimcore.service.request.editmode_resolver'
+
+    emailizr.parser.email.inline_style_parser:
+        class: EmailizrBundle\Parser\InlineStyleParser
+        arguments:
+            - '@emailizr.library.emogrifier'
+            - '@pimcore.service.request.editmode_resolver'
+
+    emailizr.twig.inky_extension:
+        class:  EmailizrBundle\Twig\Extension\InkyExtension
+        arguments:
+            - '@emailizr.parser.email.inky_parser'
+        tags:
+            - { name: twig.extension }
+
+    emailizr.twig.inline_style_extension:
+        class: EmailizrBundle\Twig\Extension\InlineStyleExtension
+        arguments:
+            - '@emailizr.parser.email.inline_style_parser'
+            - '@file_locator'
+        tags:
+            - { name: twig.extension }
