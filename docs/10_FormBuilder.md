@@ -72,36 +72,47 @@ Get FormBuilder [here](https://github.com/dachcom-digital/pimcore-formbuilder).
 - copy `FormBuilder/Resources/views/Email/formData.html.twig` to `app/Resources/FormBuilderBundle/views/Email/formData.html.twig`
 - add your inky data, for example:
 
-> Note: do not add any inline for this
 ```twig
-{% emailizr_inky %}
 {% spaceless %}
-    <container>
 
-        {% for field in fields|default([]) %}
-            {% set value = field.value %}
+    {{ emailizr_style_collector.add('@YourBundle/Resources/public/css/style.css') }}
 
-            {% if value is iterable %}
-                {% set value = value|join(', ') %}
-            {% endif %}
+    {% emailizr_inline_style %}
 
-            {% if value is not empty %}
-                <row>
-                    <columns small="12" large="6">
-                        <strong>{{ field.email_label|default(field.label)|raw }}:</strong>
-                    </columns>
-                    <columns small="12" large="6">
-                        {{ value }}
-                    </columns>
-                </row>
-            {% endif %}
-        {% endfor %}
-    </container>
+        {% emailizr_inky %}
+
+            <container>
+
+                {% for field in fields|default([]) %}
+                    {% set value = field.value %}
+
+                    {% if value is iterable %}
+                        {% set value = value|join(', ') %}
+                    {% endif %}
+
+                    {% if value is not empty %}
+
+                        <row>
+                            <columns small="12" large="6">
+                                <strong>{{ field.email_label|default(field.label)|raw }}:</strong>
+                            </columns>
+                            <columns small="12" large="6">
+                                {{ value }}
+                            </columns>
+                        </row>
+
+                    {% endif %}
+                {% endfor %}
+            </container>
+
+        {% end_emailizr_inky %}
+
+    {% end_emailizr_inline_style %}
+
 {% endspaceless %}
-{% end_emailizr_inky %}
 ```
 
-2. **Optional**: Using context Server to modifiy mail parameter
+2. **Optional**: Using context service to modifiy mail parameter
 
 Since you already have parsed all email templates via twig, everything should be fine. 
 It's possible, however, to modify the formdata via the content service:
