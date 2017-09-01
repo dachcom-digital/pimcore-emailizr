@@ -17,6 +17,7 @@ Pimcore 5.0 Emailizr.
 
 ## Usage
 
+### Twig
 ```twig
 {% spaceless %}
 {{ emailizr_style_collector.add('@YourBundle/Resources/public/css/style.css') }}
@@ -42,6 +43,38 @@ Pimcore 5.0 Emailizr.
 {% endspaceless %}
 
 ```
+### Service
+
+If you need to parse values in a custom context, you may use the ContentService.
+
+```php
+<?php
+
+use EmailizrBundle\Service\ContentService;
+
+class YourClass
+{
+    protected $contentService;
+
+    public function __construct(ContentService $contentService)
+    {
+        $this->contentService = $contentService;
+    }
+
+    public function parse($content)
+    {
+        $cssFile = PIMCORE_WEB_ROOT . '/static/css/email.css';
+
+        $fragment = $this->contentService->checkContent($content, $cssFile, FALSE, TRUE, TRUE);
+
+        return $fragment;
+
+    }
+}
+
+```
+### Further Information
+- [Use Emailizr with FormBuilder](docs/10_FormBuilder.md)
 
 ## Thanks
 

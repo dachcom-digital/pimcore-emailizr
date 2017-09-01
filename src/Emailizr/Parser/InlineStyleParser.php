@@ -29,6 +29,13 @@ class InlineStyleParser
         $this->editmodeResolver = $editmodeResolver;
     }
 
+    /**
+     * @param string $html
+     * @param string $css
+     * @param bool   $onlyBodyContent
+     *
+     * @return mixed|string
+     */
     public function parseInlineHtml($html = '', $css = '', $onlyBodyContent = FALSE)
     {
         if ($this->editmodeResolver->isEditmode()) {

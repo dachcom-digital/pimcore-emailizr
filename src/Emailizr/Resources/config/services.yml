@@ -20,6 +20,13 @@ services:
             - '@emailizr.library.emogrifier'
             - '@pimcore.service.request.editmode_resolver'
 
+    emailizr.service.content:
+        class: EmailizrBundle\Service\ContentService
+        arguments:
+            - '@file_locator'
+            - '@emailizr.parser.email.inky_parser'
+            - '@emailizr.parser.email.inline_style_parser'
+
     emailizr.twig.inky_extension:
         class:  EmailizrBundle\Twig\Extension\InkyExtension
         arguments:
