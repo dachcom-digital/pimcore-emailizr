@@ -3,7 +3,7 @@
 namespace EmailizrBundle\Parser;
 
 use Hampe\Inky\Inky;
-use Pimcore\Service\Request\EditmodeResolver;
+use Pimcore\Http\Request\Resolver\EditmodeResolver;
 
 class InkyParser
 {

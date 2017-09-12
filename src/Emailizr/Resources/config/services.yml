@@ -1,3 +1,6 @@
+imports:
+    - { resource: services/*.yml }
+
 services:
 
     emailizr.library.inky:
@@ -26,18 +29,3 @@ services:
             - '@file_locator'
             - '@emailizr.parser.email.inky_parser'
             - '@emailizr.parser.email.inline_style_parser'
-
-    emailizr.twig.inky_extension:
-        class:  EmailizrBundle\Twig\Extension\InkyExtension
-        arguments:
-            - '@emailizr.parser.email.inky_parser'
-        tags:
-            - { name: twig.extension }
-
-    emailizr.twig.inline_style_extension:
-        class: EmailizrBundle\Twig\Extension\InlineStyleExtension
-        arguments:
-            - '@emailizr.parser.email.inline_style_parser'
-            - '@file_locator'
-        tags:
-            - { name: twig.extension }

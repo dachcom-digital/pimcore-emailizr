@@ -3,7 +3,7 @@
 namespace EmailizrBundle\Parser;
 
 use Pelago\Emogrifier;
-use Pimcore\Service\Request\EditmodeResolver;
+use Pimcore\Http\Request\Resolver\EditmodeResolver;
 
 class InlineStyleParser
 {
