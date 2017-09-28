@@ -1,0 +1,12 @@
+services:
+
+    _defaults:
+        autowire: false
+        autoconfigure: false
+        public: false
+
+    Hampe\Inky\Inky:
+       public: false
+
+    Pelago\Emogrifier:
+        public: false

@@ -1,15 +1,14 @@
 services:
-    emailizr.twig.inky_extension:
-        class:  EmailizrBundle\Twig\Extension\InkyExtension
-        arguments:
-            - '@emailizr.parser.email.inky_parser'
+
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    EmailizrBundle\Twig\Extension\InkyExtension:
         tags:
             - { name: twig.extension }
 
-    emailizr.twig.inline_style_extension:
-        class: EmailizrBundle\Twig\Extension\InlineStyleExtension
-        arguments:
-            - '@emailizr.parser.email.inline_style_parser'
-            - '@file_locator'
+    EmailizrBundle\Twig\Extension\InlineStyleExtension:
         tags:
             - { name: twig.extension }

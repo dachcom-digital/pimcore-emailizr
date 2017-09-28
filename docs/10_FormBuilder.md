@@ -121,10 +121,11 @@ It's possible, however, to modify the formdata via the content service:
 2.1. Set an Event Listener
 ```yaml
 services:
-    app.event_listener.form_builder.pre_submit_email:
-        class: AppBundle\EventListener\FormBuilderMailListener
-        arguments:
-            - '@emailizr.service.content'
+    _defaults:
+        autowire: true
+        public: false
+        
+    AppBundle\EventListener\FormBuilderMailListener:
         tags:
             - { name: kernel.event_subscriber }
 
