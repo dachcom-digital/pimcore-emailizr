@@ -2,7 +2,7 @@
 Pimcore 5.0 Emailizr.
 
 #### Requirements
-* Pimcore 5. Only with Build 108 or greater.
+* Pimcore 5.
 
 ## Installation
 
