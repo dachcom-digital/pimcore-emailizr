@@ -8,7 +8,7 @@ Pimcore 5.0 Emailizr.
 
 ```json
 "require" : {
-    "dachcom-digital/emailizr" : "dev-master",
+    "dachcom-digital/emailizr" : "~1.0.0",
 }
 ```
 
@@ -44,7 +44,6 @@ Pimcore 5.0 Emailizr.
 
 ```
 ### Service
-
 If you need to parse values in a custom context, you may use the ContentService.
 
 ```php
@@ -77,7 +76,6 @@ class YourClass
 - [Use Emailizr with FormBuilder](docs/10_FormBuilder.md)
 
 ## Thanks
-
 - Thanks to [ZurbInk Bundle](https://github.com/thampe/ZurbInkBundle) for pointing the right direction.
 - Thanks to [Inky Parser](https://github.com/thampe/inky) for the inky php implementation.
 - Thanks to [Emogrifier](https://github.com/jjriv/emogrifier) for the css inline integration.
