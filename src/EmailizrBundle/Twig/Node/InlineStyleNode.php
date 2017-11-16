@@ -1,6 +1,6 @@
 <?php
 
-namespace EmailizrBundle\Twig\Extension\Node;
+namespace EmailizrBundle\Twig\Node;
 
 use \Twig_Node;
 use \Twig_Compiler;

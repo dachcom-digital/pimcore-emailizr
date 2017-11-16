@@ -2,7 +2,7 @@
 
 namespace EmailizrBundle\Twig\Parser;
 
-use EmailizrBundle\Twig\Extension\Node\InkyNode;
+use EmailizrBundle\Twig\Node\InkyNode;
 use Twig_Token;
 
 class InkyTokenParser extends \Twig_TokenParser

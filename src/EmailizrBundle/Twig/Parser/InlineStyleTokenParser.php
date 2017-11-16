@@ -2,7 +2,7 @@
 
 namespace EmailizrBundle\Twig\Parser;
 
-use EmailizrBundle\Twig\Extension\Node\InlineStyleNode;
+use EmailizrBundle\Twig\Node\InlineStyleNode;
 use \Twig_Token;
 use \Twig_TokenParser;
 
