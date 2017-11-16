@@ -4,7 +4,7 @@ namespace EmailizrBundle\Twig\Extension;
 
 use EmailizrBundle\Parser\InlineStyleParser;
 use EmailizrBundle\Collector\CssCollector;
-use EmailizrBundle\Twig\Extension\Parser\InlineStyleTokenParser;
+use EmailizrBundle\Twig\Parser\InlineStyleTokenParser;
 use Symfony\Component\HttpKernel\Config\FileLocator;
 use \Twig_Extension;
 use \Twig_Extension_GlobalsInterface;

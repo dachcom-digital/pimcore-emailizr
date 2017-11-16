@@ -3,7 +3,7 @@
 namespace EmailizrBundle\Twig\Extension;
 
 use EmailizrBundle\Parser\InkyParser;
-use EmailizrBundle\Twig\Extension\Parser\InkyTokenParser;
+use EmailizrBundle\Twig\Parser\InkyTokenParser;
 
 class InkyExtension extends \Twig_Extension
 {

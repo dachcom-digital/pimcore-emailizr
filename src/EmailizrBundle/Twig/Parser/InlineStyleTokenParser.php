@@ -1,6 +1,6 @@
 <?php
 
-namespace EmailizrBundle\Twig\Extension\Parser;
+namespace EmailizrBundle\Twig\Parser;
 
 use EmailizrBundle\Twig\Extension\Node\InlineStyleNode;
 use \Twig_Token;

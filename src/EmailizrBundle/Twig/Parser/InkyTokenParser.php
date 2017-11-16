@@ -1,6 +1,6 @@
 <?php
 
-namespace EmailizrBundle\Twig\Extension\Parser;
+namespace EmailizrBundle\Twig\Parser;
 
 use EmailizrBundle\Twig\Extension\Node\InkyNode;
 use Twig_Token;
