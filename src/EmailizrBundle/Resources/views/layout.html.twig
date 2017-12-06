@@ -1,29 +1,3 @@
-# Pimcore Emailizr
-Pimcore 5.0 Emailizr.
-
-#### Requirements
-* Pimcore 5.
-
-## Installation
-
-```json
-"require" : {
-    "dachcom-digital/emailizr" : "~1.0.0",
-}
-```
-
-- Create valid email markup with inky and inline styles. 
-- Respect editables in pimcore editmode.
-
-## Usage
-Just extend the emailizr layout:
-
-```twig
-{% extends '@Emailizr/layout.html.twig' %}
-```
-
-This will include a markup like this. You may want to change it:
-```twig
 {% spaceless %}
 {{ emailizr_style_collector.add('@EmailizrBundle/Resources/public/css/foundation-for-emails/foundation.min.css') }}
 {% emailizr_inline_style %}
@@ -61,40 +35,3 @@ This will include a markup like this. You may want to change it:
 </html>
 {% end_emailizr_inline_style %}
 {% endspaceless %}
-```
-### Service
-If you need to parse values in a custom context, you may use the ContentService.
-
-```php
-<?php
-
-use EmailizrBundle\Service\ContentService;
-
-class YourClass
-{
-    protected $contentService;
-
-    public function __construct(ContentService $contentService)
-    {
-        $this->contentService = $contentService;
-    }
-
-    public function parse($content)
-    {
-        $cssFile = PIMCORE_WEB_ROOT . '/static/css/email.css';
-
-        $fragment = $this->contentService->checkContent($content, $cssFile, FALSE, TRUE, TRUE);
-
-        return $fragment;
-
-    }
-}
-
-```
-### Further Information
-- [Use Emailizr with FormBuilder](docs/10_FormBuilder.md)
-
-## Thanks
-- Thanks to [ZurbInk Bundle](https://github.com/thampe/ZurbInkBundle) for pointing the right direction.
-- Thanks to [Inky Parser](https://github.com/thampe/inky) for the inky php implementation.
-- Thanks to [Emogrifier](https://github.com/jjriv/emogrifier) for the css inline integration.
