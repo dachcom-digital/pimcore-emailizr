@@ -40,14 +40,14 @@ class InkyParser
             return $this->inky->releaseTheKraken($templateHtml);
         }
 
-        $templateHtml = preg_replace_callback('/editableConfigurations\.push\(\{(.*?)\}\);[?:\s+<\/]/', function ($hit) {
-            return 'editableConfigurations.push({' . htmlspecialchars($hit[1]) . '});';
+        $templateHtml = preg_replace_callback('/(<script[\s\S]*?>)([\s\S]*?)(<\/script>)/', function ($hit) {
+            return $hit[1] . base64_encode($hit[2]) . $hit[3];
         }, $templateHtml);
 
         $inkedHtml = $this->inky->releaseTheKraken($templateHtml);
 
-        return preg_replace_callback('/editableConfigurations\.push\(\{(.*?)\}\);[?:\s+<\/]/', function ($hit) {
-            return 'editableConfigurations.push({' . html_entity_decode($hit[1]) . '});';
+        return preg_replace_callback('/(<script[\s\S]*?>)([\s\S]*?)(<\/script>)/', function ($hit) {
+            return $hit[1] . base64_decode($hit[2]) . $hit[3];
         }, $inkedHtml);
     }
 
