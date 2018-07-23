@@ -2,7 +2,7 @@
 
 namespace EmailizrBundle\Parser;
 
-use Hampe\Inky\Inky;
+use Pinky;
 use Pimcore\Http\Request\Resolver\EditmodeResolver;
 
 class InkyParser
@@ -20,12 +20,10 @@ class InkyParser
     /**
      * EmailParser constructor.
      *
-     * @param Inky             $inky
      * @param EditmodeResolver $editmodeResolver
      */
-    public function __construct(Inky $inky, EditmodeResolver $editmodeResolver)
+    public function __construct(EditmodeResolver $editmodeResolver)
     {
-        $this->inky = $inky;
         $this->editmodeResolver = $editmodeResolver;
     }
 
@@ -36,15 +34,15 @@ class InkyParser
      */
     public function parseInkyHtml($templateHtml)
     {
-        if ($this->editmodeResolver->isEditmode() === FALSE) {
-            return $this->inky->releaseTheKraken($templateHtml);
+        if ($this->editmodeResolver->isEditmode() === false) {
+            return Pinky\transformString($templateHtml)->saveHTML();
         }
 
         $templateHtml = preg_replace_callback('/(<script[\s\S]*?>)([\s\S]*?)(<\/script>)/', function ($hit) {
             return $hit[1] . base64_encode($hit[2]) . $hit[3];
         }, $templateHtml);
 
-        $inkedHtml = $this->inky->releaseTheKraken($templateHtml);
+        $inkedHtml = Pinky\transformString($templateHtml)->saveHTML();
 
         return preg_replace_callback('/(<script[\s\S]*?>)([\s\S]*?)(<\/script>)/', function ($hit) {
             return $hit[1] . base64_decode($hit[2]) . $hit[3];
