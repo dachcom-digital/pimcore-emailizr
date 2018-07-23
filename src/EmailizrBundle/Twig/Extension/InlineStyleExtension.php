@@ -35,11 +35,17 @@ class InlineStyleExtension extends Twig_Extension implements Twig_Extension_Glob
         $this->fileLocator = $fileLocator;
     }
 
+    /**
+     * @return string
+     */
     public function getName()
     {
         return self::NAME;
     }
 
+    /**
+     * @return array
+     */
     public function getGlobals()
     {
         return [
@@ -49,6 +55,9 @@ class InlineStyleExtension extends Twig_Extension implements Twig_Extension_Glob
         ];
     }
 
+    /**
+     * @return array|\Twig_Function[]
+     */
     public function getFunctions()
     {
         return [
@@ -56,6 +65,9 @@ class InlineStyleExtension extends Twig_Extension implements Twig_Extension_Glob
         ];
     }
 
+    /**
+     * @return array|\Twig_TokenParserInterface[]
+     */
     public function getTokenParsers()
     {
         return [
@@ -63,6 +75,10 @@ class InlineStyleExtension extends Twig_Extension implements Twig_Extension_Glob
         ];
     }
 
+    /**
+     * @param $styles
+     * @return string
+     */
     public function includeStyles($styles)
     {
         $style = '';

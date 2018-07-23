@@ -46,20 +46,20 @@ class ContentService
      *
      * @return mixed|string
      */
-    public function checkContent($html = '', $css = [], $parseInky = TRUE, $parseInline = TRUE, $isFragment = TRUE)
+    public function checkContent($html = '', $css = [], $parseInky = true, $parseInline = true, $isFragment = true)
     {
         //only parse html data.
         if (preg_match("/<[^<]+>/", $html, $m) === 0) {
             return $html;
         }
 
-        if ($parseInky == TRUE) {
+        if ($parseInky == true) {
             $html = $this->inkyParser->parseInkyHtml($html);
         }
 
         if ($parseInline && !empty($css)) {
 
-            if(is_string($css)) {
+            if (is_string($css)) {
                 $css = [$css];
             }
 
@@ -85,5 +85,4 @@ class ContentService
 
         return $style;
     }
-
 }

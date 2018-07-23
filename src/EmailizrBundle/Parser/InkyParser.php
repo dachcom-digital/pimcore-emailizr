@@ -28,7 +28,7 @@ class InkyParser
     }
 
     /**
-     * @param      $templateHtml
+     * @param $templateHtml
      *
      * @return mixed|string
      */
