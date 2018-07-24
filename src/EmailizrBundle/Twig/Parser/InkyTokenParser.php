@@ -11,14 +11,14 @@ class InkyTokenParser extends \Twig_TokenParser
 
     /**
      * @param Twig_Token $token
-     *
-     * @return InkyNode
+     * @return InkyNode|\Twig_Node
+     * @throws \Twig_Error_Syntax
      */
     public function parse(Twig_Token $token)
     {
         $lineno = $token->getLine();
         $this->parser->getStream()->expect(\Twig_Token::BLOCK_END_TYPE);
-        $body = $this->parser->subparse([$this, 'decideInkyEnd'], TRUE);
+        $body = $this->parser->subparse([$this, 'decideInkyEnd'], true);
         $this->parser->getStream()->expect(\Twig_Token::BLOCK_END_TYPE);
 
         return new InkyNode($body, $lineno, $this->getTag());
@@ -26,6 +26,7 @@ class InkyTokenParser extends \Twig_TokenParser
 
     /**
      * Gets the tag name associated with this token parser.
+     *
      * @return string The tag name
      */
     public function getTag()

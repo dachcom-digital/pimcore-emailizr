@@ -24,5 +24,4 @@ class EmailizrBundle extends AbstractPimcoreBundle
     {
         return self::BUNDLE_VERSION;
     }
-
 }

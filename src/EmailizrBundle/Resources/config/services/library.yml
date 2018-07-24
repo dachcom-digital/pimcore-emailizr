@@ -5,8 +5,5 @@ services:
         autoconfigure: false
         public: false
 
-    Hampe\Inky\Inky:
-       public: false
-
     Pelago\Emogrifier:
         public: false
