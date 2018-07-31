@@ -7,7 +7,7 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 
 class EmailizrBundle extends AbstractPimcoreBundle
 {
-    const BUNDLE_VERSION = '1.0.4';
+    const BUNDLE_VERSION = '1.0.5';
 
     /**
      * @param ContainerBuilder $container
