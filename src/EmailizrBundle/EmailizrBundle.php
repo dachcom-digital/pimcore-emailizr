@@ -3,11 +3,17 @@
 namespace EmailizrBundle;
 
 use Pimcore\Extension\Bundle\AbstractPimcoreBundle;
+use Pimcore\Extension\Bundle\Traits\PackageVersionTrait;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
+/**
+ * Class EmailizrBundle
+ *
+ * @package EmailizrBundle
+ */
 class EmailizrBundle extends AbstractPimcoreBundle
 {
-    const BUNDLE_VERSION = '1.0.5';
+    use PackageVersionTrait;
 
     /**
      * @param ContainerBuilder $container
@@ -18,10 +24,11 @@ class EmailizrBundle extends AbstractPimcoreBundle
     }
 
     /**
-     * {@inheritdoc}
+     * @inheritDoc
      */
-    public function getVersion()
+    protected function getComposerPackageName(): string
     {
-        return self::BUNDLE_VERSION;
+        return 'dachcom-digital/emailizr';
     }
+
 }
