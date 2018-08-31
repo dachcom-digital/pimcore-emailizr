@@ -15,6 +15,8 @@ class EmailizrBundle extends AbstractPimcoreBundle
 {
     use PackageVersionTrait;
 
+    const PACKAGE_NAME = 'dachcom-digital/emailizr';
+
     /**
      * @param ContainerBuilder $container
      */
@@ -28,7 +30,6 @@ class EmailizrBundle extends AbstractPimcoreBundle
      */
     protected function getComposerPackageName(): string
     {
-        return 'dachcom-digital/emailizr';
+        return self::PACKAGE_NAME;
     }
-
 }
