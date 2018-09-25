@@ -28,7 +28,7 @@
         }
     },
     "require": {
-        "lorenzo/pinky":"1.0.1",
+        "lorenzo/pinky":"^1.0.3",
         "pelago/emogrifier": "^2.0.0"
     }
 }
