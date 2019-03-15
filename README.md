@@ -1,6 +1,12 @@
 # Pimcore Emailizr
 Pimcore 5.0 Emailizr.
 
+[![Join the chat at https://gitter.im/pimcore/pimcore](https://img.shields.io/gitter/room/pimcore/pimcore.svg?style=flat-square)](https://gitter.im/pimcore/pimcore)
+[![Software License](https://img.shields.io/badge/license-GPLv3-brightgreen.svg?style=flat-square)](LICENSE.md)
+[![Latest Release](https://img.shields.io/packagist/v/dachcom-digital/emailizr.svg?style=flat-square)](https://packagist.org/packages/dachcom-digital/emailizr)
+[![Travis](https://img.shields.io/travis/dachcom-digital/pimcore-emailizr/master.svg?style=flat-square)](https://travis-ci.com/dachcom-digital/pimcore-emailizr)
+[![PhpStan](https://img.shields.io/badge/PHPStan-level%202-brightgreen.svg?style=flat-square)](#)
+
 #### Requirements
 * Pimcore >= 5.4.0
 
