@@ -11,7 +11,9 @@ class InkyTokenParser extends \Twig_TokenParser
 
     /**
      * @param Twig_Token $token
+     *
      * @return InkyNode|\Twig_Node
+     *
      * @throws \Twig_Error_Syntax
      */
     public function parse(Twig_Token $token)

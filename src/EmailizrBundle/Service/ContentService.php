@@ -42,14 +42,14 @@ class ContentService
      * @param array  $css
      * @param bool   $parseInky
      * @param bool   $parseInline
-     * @param bool   $isFragment only parse fragment in inline style
+     * @param bool   $isFragment  only parse fragment in inline style
      *
      * @return mixed|string
      */
     public function checkContent($html = '', $css = [], $parseInky = true, $parseInline = true, $isFragment = true)
     {
         //only parse html data.
-        if (preg_match("/<[^<]+>/", $html, $m) === 0) {
+        if (preg_match('/<[^<]+>/', $html, $m) === 0) {
             return $html;
         }
 
@@ -58,7 +58,6 @@ class ContentService
         }
 
         if ($parseInline && !empty($css)) {
-
             if (is_string($css)) {
                 $css = [$css];
             }

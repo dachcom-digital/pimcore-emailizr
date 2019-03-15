@@ -6,8 +6,8 @@ use EmailizrBundle\Parser\InlineStyleParser;
 use EmailizrBundle\Collector\CssCollector;
 use EmailizrBundle\Twig\Parser\InlineStyleTokenParser;
 use Symfony\Component\HttpKernel\Config\FileLocator;
-use \Twig_Extension;
-use \Twig_Extension_GlobalsInterface;
+use Twig_Extension;
+use Twig_Extension_GlobalsInterface;
 
 class InlineStyleExtension extends Twig_Extension implements Twig_Extension_GlobalsInterface
 {

@@ -41,5 +41,4 @@ class InkyParser
             return $hit[1] . base64_decode($hit[2]) . $hit[3];
         }, $inkedHtml);
     }
-
 }

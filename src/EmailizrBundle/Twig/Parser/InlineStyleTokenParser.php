@@ -3,8 +3,8 @@
 namespace EmailizrBundle\Twig\Parser;
 
 use EmailizrBundle\Twig\Node\InlineStyleNode;
-use \Twig_Token;
-use \Twig_TokenParser;
+use Twig_Token;
+use Twig_TokenParser;
 
 class InlineStyleTokenParser extends Twig_TokenParser
 {
@@ -12,7 +12,9 @@ class InlineStyleTokenParser extends Twig_TokenParser
 
     /**
      * @param Twig_Token $token
+     *
      * @return InlineStyleNode|\Twig_Node
+     *
      * @throws \Twig_Error_Syntax
      */
     public function parse(Twig_Token $token)

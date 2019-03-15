@@ -2,8 +2,8 @@
 
 namespace EmailizrBundle\Twig\Node;
 
-use \Twig_Node;
-use \Twig_Compiler;
+use Twig_Node;
+use Twig_Compiler;
 
 class InlineStyleNode extends Twig_Node
 {

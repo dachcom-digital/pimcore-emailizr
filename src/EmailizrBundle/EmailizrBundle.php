@@ -6,11 +6,6 @@ use Pimcore\Extension\Bundle\AbstractPimcoreBundle;
 use Pimcore\Extension\Bundle\Traits\PackageVersionTrait;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
-/**
- * Class EmailizrBundle
- *
- * @package EmailizrBundle
- */
 class EmailizrBundle extends AbstractPimcoreBundle
 {
     use PackageVersionTrait;
@@ -26,7 +21,7 @@ class EmailizrBundle extends AbstractPimcoreBundle
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     protected function getComposerPackageName(): string
     {

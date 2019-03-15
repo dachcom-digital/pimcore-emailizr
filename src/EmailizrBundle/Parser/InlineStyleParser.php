@@ -61,5 +61,4 @@ class InlineStyleParser
 
         return $mergedHtml;
     }
-
 }
