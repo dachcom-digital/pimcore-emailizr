@@ -2,7 +2,7 @@
     "name": "dachcom-digital/emailizr",
     "type": "pimcore-bundle",
     "license": "GPL-3.0-or-later",
-    "description": "Pimcore 5.x Emailizr - create HTML E-Mails the right way!",
+    "description": "Pimcore 5 Emailizr - create HTML E-Mails the right way!",
     "keywords": ["pimcore", "email", "inky", "inline style"],
     "homepage": "https://github.com/dachcom-digital/pimcore-emailizr",
     "authors": [
@@ -28,7 +28,14 @@
         }
     },
     "require": {
+         "pimcore/core-version": "^5.4.0",
         "lorenzo/pinky":"^1.0.3",
         "pelago/emogrifier": "^2.0.0"
+    },
+    "require-dev": {
+        "codeception/codeception": "~2.3.0",
+        "phpstan/phpstan": "^0.11.1",
+        "phpstan/phpstan-symfony": "^0.11.0",
+        "symplify/easy-coding-standard": "^5.4"
     }
 }

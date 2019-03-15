@@ -2,7 +2,7 @@
 Pimcore 5.0 Emailizr.
 
 #### Requirements
-* Pimcore 5.
+* Pimcore >= 5.4.0
 
 ## Installation
 
