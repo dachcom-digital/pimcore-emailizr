@@ -76,7 +76,8 @@ class InlineStyleExtension extends Twig_Extension implements Twig_Extension_Glob
     }
 
     /**
-     * @param $styles
+     * @param array $styles
+     *
      * @return string
      */
     public function includeStyles($styles)

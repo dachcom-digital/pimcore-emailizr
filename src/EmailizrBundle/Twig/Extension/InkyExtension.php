@@ -43,7 +43,7 @@ class InkyExtension extends \Twig_Extension
     }
 
     /**
-     * @param $html
+     * @param string $html
      *
      * @return mixed|string
      */

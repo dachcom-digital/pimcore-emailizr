@@ -3,6 +3,4 @@ modules:
     enabled:
         - \DachcomBundle\Test\Helper\PimcoreCore:
             connect_db: true
-        - \DachcomBundle\Test\Helper\PimcoreBundleCore:
-            run_installer: true
         - \DachcomBundle\Test\Helper\Unit

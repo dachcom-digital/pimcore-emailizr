@@ -10,16 +10,13 @@ class CssCollector implements \IteratorAggregate
     protected $cssFiles = [];
 
     /**
-     * @param $file
+     * @param string $file
      */
     public function add($file)
     {
         $this->cssFiles[] = $file;
     }
 
-    /**
-     *
-     */
     public function removeAll()
     {
         $this->cssFiles = [];

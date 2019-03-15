@@ -8,18 +8,11 @@ use Pimcore\Http\Request\Resolver\EditmodeResolver;
 class InkyParser
 {
     /**
-     * @var Inky
-     */
-    protected $inky;
-
-    /**
      * @var EditmodeResolver
      */
     protected $editmodeResolver;
 
     /**
-     * EmailParser constructor.
-     *
      * @param EditmodeResolver $editmodeResolver
      */
     public function __construct(EditmodeResolver $editmodeResolver)
@@ -28,9 +21,9 @@ class InkyParser
     }
 
     /**
-     * @param $templateHtml
+     * @param string $templateHtml
      *
-     * @return mixed|string
+     * @return string
      */
     public function parseInkyHtml($templateHtml)
     {
