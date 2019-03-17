@@ -3,7 +3,6 @@
 namespace DachcomBundle\Test\Test;
 
 use DachcomBundle\Test\Helper\PimcoreCore;
-use DachcomBundle\Test\Util\FileGeneratorHelper;
 use DachcomBundle\Test\Util\EmailizrHelper;
 use Pimcore\Tests\Test\TestCase;
 
@@ -12,8 +11,6 @@ abstract class DachcomBundleTestCase extends TestCase
     protected function _after()
     {
         EmailizrHelper::cleanUp();
-        FileGeneratorHelper::cleanUp();
-
         parent::_after();
     }
 

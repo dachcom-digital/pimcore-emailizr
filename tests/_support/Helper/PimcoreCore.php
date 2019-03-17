@@ -13,11 +13,6 @@ use Symfony\Component\Filesystem\Filesystem;
 class PimcoreCore extends PimcoreCoreModule
 {
     /**
-     * @var bool
-     */
-    protected $kernelHasCustomConfig = false;
-
-    /**
      * @inheritDoc
      */
     public function __construct(ModuleContainer $moduleContainer, $config = null)
@@ -31,27 +26,12 @@ class PimcoreCore extends PimcoreCoreModule
     }
 
     /**
-     * @inheritDoc
-     */
-    public function _after(\Codeception\TestInterface $test)
-    {
-        parent::_after($test);
-
-        // config has changed, we need to restore default config before starting a new test!
-        if ($this->kernelHasCustomConfig === true) {
-            $this->clearCache();
-            $this->bootKernelWithConfiguration(null);
-            $this->kernelHasCustomConfig = false;
-        }
-    }
-
-    /**
      * @inheritdoc
      */
     public function _afterSuite()
     {
         \Pimcore::collectGarbage();
-        $this->clearCache();
+        //$this->clearCache();
         parent::_afterSuite();
     }
 
@@ -63,7 +43,6 @@ class PimcoreCore extends PimcoreCoreModule
         $this->setPimcoreEnvironment($this->config['environment']);
         $this->initializeKernel();
         $this->setupDbConnection();
-        $this->setPimcoreCacheAvailability('disabled');
     }
 
     /**
@@ -138,60 +117,4 @@ class PimcoreCore extends PimcoreCoreModule
     {
         Config::setEnvironment($env);
     }
-
-    /**
-     * @param string $state
-     */
-    protected function setPimcoreCacheAvailability($state = 'disabled')
-    {
-        if ($state === 'disabled') {
-            Cache::disable();
-        } else {
-            Cache::enable();
-        }
-    }
-
-    /**
-     * Actor Function to boot symfony with a specific bundle configuration
-     *
-     * @param string $configuration
-     */
-    public function haveABootedSymfonyConfiguration(string $configuration)
-    {
-        $this->kernelHasCustomConfig = true;
-        $this->clearCache();
-        $this->bootKernelWithConfiguration($configuration);
-    }
-
-    /**
-     * @param string   $exception
-     * @param string   $message
-     * @param \Closure $callback
-     */
-    public function seeException($exception, $message, \Closure $callback)
-    {
-        $function = function () use ($callback, $exception, $message) {
-            try {
-
-                $callback();
-                return false;
-
-            } catch (\Exception $e) {
-
-                if (get_class($e) === $exception or get_parent_class($e) === $exception) {
-
-                    if (empty($message)) {
-                        return true;
-                    }
-
-                    return $message === $e->getMessage();
-                }
-
-                return false;
-            }
-        };
-
-        $this->assertTrue($function());
-    }
 }
-

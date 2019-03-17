@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+    <table class="test" style="width: 100%;">
+        <tbody>
+            <tr>
+                <td>
+                    %DataObject(667, {"method" : "getName"});
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
