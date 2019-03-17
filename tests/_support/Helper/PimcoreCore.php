@@ -4,7 +4,6 @@ namespace DachcomBundle\Test\Helper;
 
 use Codeception\Lib\ModuleContainer;
 use Codeception\Lib\Connector\Symfony as SymfonyConnector;
-use Pimcore\Cache;
 use Pimcore\Config;
 use Pimcore\Event\TestEvents;
 use Pimcore\Tests\Helper\Pimcore as PimcoreCoreModule;
@@ -31,7 +30,7 @@ class PimcoreCore extends PimcoreCoreModule
     public function _afterSuite()
     {
         \Pimcore::collectGarbage();
-        //$this->clearCache();
+        $this->clearCache();
         parent::_afterSuite();
     }
 
