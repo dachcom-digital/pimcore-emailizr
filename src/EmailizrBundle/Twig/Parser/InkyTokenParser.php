@@ -3,25 +3,28 @@
 namespace EmailizrBundle\Twig\Parser;
 
 use EmailizrBundle\Twig\Node\InkyNode;
-use Twig_Token;
+use Twig\Error\SyntaxError;
+use Twig\Node\Node;
+use Twig\Token;
+use Twig\TokenParser\AbstractTokenParser;
 
-class InkyTokenParser extends \Twig_TokenParser
+class InkyTokenParser extends AbstractTokenParser
 {
     const TAG = 'emailizr_inky';
 
     /**
-     * @param Twig_Token $token
+     * @param Token $token
      *
-     * @return InkyNode|\Twig_Node
+     * @return InkyNode|Node
      *
-     * @throws \Twig_Error_Syntax
+     * @throws SyntaxError
      */
-    public function parse(Twig_Token $token)
+    public function parse(Token $token)
     {
         $lineno = $token->getLine();
-        $this->parser->getStream()->expect(\Twig_Token::BLOCK_END_TYPE);
+        $this->parser->getStream()->expect(Token::BLOCK_END_TYPE);
         $body = $this->parser->subparse([$this, 'decideInkyEnd'], true);
-        $this->parser->getStream()->expect(\Twig_Token::BLOCK_END_TYPE);
+        $this->parser->getStream()->expect(Token::BLOCK_END_TYPE);
 
         return new InkyNode($body, $lineno, $this->getTag());
     }
@@ -37,11 +40,11 @@ class InkyTokenParser extends \Twig_TokenParser
     }
 
     /**
-     * @param Twig_Token $token
+     * @param Token $token
      *
      * @return bool
      */
-    public function decideInkyEnd(\Twig_Token $token)
+    public function decideInkyEnd(Token $token)
     {
         return $token->test('end_' . self::TAG);
     }

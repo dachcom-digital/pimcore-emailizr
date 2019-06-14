@@ -6,10 +6,12 @@ use EmailizrBundle\Parser\InlineStyleParser;
 use EmailizrBundle\Collector\CssCollector;
 use EmailizrBundle\Twig\Parser\InlineStyleTokenParser;
 use Symfony\Component\HttpKernel\Config\FileLocator;
-use Twig_Extension;
-use Twig_Extension_GlobalsInterface;
+use Twig\Extension\AbstractExtension;
+use Twig\Extension\GlobalsInterface;
+use Twig\TokenParser\TokenParserInterface;
+use Twig\TwigFunction;
 
-class InlineStyleExtension extends Twig_Extension implements Twig_Extension_GlobalsInterface
+class InlineStyleExtension extends AbstractExtension implements GlobalsInterface
 {
     const NAME = 'emailizr.inline_style';
 
@@ -56,17 +58,17 @@ class InlineStyleExtension extends Twig_Extension implements Twig_Extension_Glob
     }
 
     /**
-     * @return array|\Twig_Function[]
+     * @return array|TwigFunction[]
      */
     public function getFunctions()
     {
         return [
-            new \Twig_Function('emailizr_inline_style', [$this, 'includeStyles'])
+            new TwigFunction('emailizr_inline_style', [$this, 'includeStyles'])
         ];
     }
 
     /**
-     * @return array|\Twig_TokenParserInterface[]
+     * @return array|TokenParserInterface[]
      */
     public function getTokenParsers()
     {

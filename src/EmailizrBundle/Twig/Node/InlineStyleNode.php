@@ -2,10 +2,10 @@
 
 namespace EmailizrBundle\Twig\Node;
 
-use Twig_Node;
-use Twig_Compiler;
+use Twig\Compiler;
+use Twig\Node\Node;
 
-class InlineStyleNode extends Twig_Node
+class InlineStyleNode extends Node
 {
     /**
      * InlineCssNode constructor.
@@ -20,9 +20,9 @@ class InlineStyleNode extends Twig_Node
     }
 
     /**
-     * @param Twig_Compiler $compiler
+     * @param Compiler $compiler
      */
-    public function compile(Twig_Compiler $compiler)
+    public function compile(Compiler $compiler)
     {
         $compiler
             ->write("ob_start();\n")

@@ -2,18 +2,19 @@
 
 namespace EmailizrBundle\Twig\Node;
 
-use Twig_Node;
+use Twig\Compiler;
+use Twig\Node\Node;
 
-class InkyNode extends Twig_Node
+class InkyNode extends Node
 {
     /**
      * InkyNode constructor.
      *
-     * @param Twig_Node $body
+     * @param Node $body
      * @param array     $lineno
      * @param string    $tag
      */
-    public function __construct(\Twig_Node $body, $lineno, $tag = 'inky')
+    public function __construct(Node $body, $lineno, $tag = 'inky')
     {
         parent::__construct(['body' => $body], [], $lineno, $tag);
     }
@@ -21,9 +22,9 @@ class InkyNode extends Twig_Node
     /**
      * Compiles the node to PHP.
      *
-     * @param \Twig_Compiler $compiler
+     * @param Compiler $compiler
      */
-    public function compile(\Twig_Compiler $compiler)
+    public function compile(Compiler $compiler)
     {
         $compiler
             ->addDebugInfo($this)

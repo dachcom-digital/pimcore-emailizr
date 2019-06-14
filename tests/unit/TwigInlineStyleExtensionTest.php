@@ -10,6 +10,7 @@ use EmailizrBundle\Twig\Parser\InlineStyleTokenParser;
 use Pelago\Emogrifier;
 use Pimcore\Http\Request\Resolver\EditmodeResolver;
 use Symfony\Component\HttpKernel\Config\FileLocator;
+use Twig\TwigFunction;
 
 class TwigInlineStyleExtensionTest extends DachcomBundleTestCase
 {
@@ -42,7 +43,7 @@ class TwigInlineStyleExtensionTest extends DachcomBundleTestCase
     {
         $this->assertEquals(
             [
-                new \Twig_SimpleFunction(
+                new TwigFunction(
                     'emailizr_inline_style',
                     [$this->extension, 'includeStyles']
                 )

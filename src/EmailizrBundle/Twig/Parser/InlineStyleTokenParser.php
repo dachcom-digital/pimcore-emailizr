@@ -3,27 +3,29 @@
 namespace EmailizrBundle\Twig\Parser;
 
 use EmailizrBundle\Twig\Node\InlineStyleNode;
-use Twig_Token;
-use Twig_TokenParser;
+use Twig\Error\SyntaxError;
+use Twig\Node\Node;
+use Twig\Token;
+use Twig\TokenParser\AbstractTokenParser;
 
-class InlineStyleTokenParser extends Twig_TokenParser
+class InlineStyleTokenParser extends AbstractTokenParser
 {
     const TAG = 'emailizr_inline_style';
 
     /**
-     * @param Twig_Token $token
+     * @param Token $token
      *
-     * @return InlineStyleNode|\Twig_Node
+     * @return InlineStyleNode|Node
      *
-     * @throws \Twig_Error_Syntax
+     * @throws SyntaxError
      */
-    public function parse(Twig_Token $token)
+    public function parse(Token $token)
     {
         $parser = $this->parser;
         $stream = $parser->getStream();
-        $stream->expect(Twig_Token::BLOCK_END_TYPE);
+        $stream->expect(Token::BLOCK_END_TYPE);
         $html = $this->parser->subparse([$this, 'decideEnd'], true);
-        $stream->expect(Twig_Token::BLOCK_END_TYPE);
+        $stream->expect(Token::BLOCK_END_TYPE);
 
         return new InlineStyleNode($html, $token->getLine(), $this->getTag());
     }
@@ -37,11 +39,11 @@ class InlineStyleTokenParser extends Twig_TokenParser
     }
 
     /**
-     * @param Twig_Token $token
+     * @param Token $token
      *
      * @return bool
      */
-    public function decideEnd(Twig_Token $token)
+    public function decideEnd(Token $token)
     {
         return $token->test('end_' . self::TAG);
     }
