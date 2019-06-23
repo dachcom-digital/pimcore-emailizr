@@ -4,8 +4,9 @@ namespace EmailizrBundle\Twig\Extension;
 
 use EmailizrBundle\Parser\InkyParser;
 use EmailizrBundle\Twig\Parser\InkyTokenParser;
+use Twig\Extension\AbstractExtension;
 
-class InkyExtension extends \Twig_Extension
+class InkyExtension extends AbstractExtension
 {
     const NAME = 'emailizr.inky';
 
