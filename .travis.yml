@@ -1,7 +1,9 @@
-sudo: required
+sudo: true
 language: php
 addons:
-    mariadb: '10.1'
+    mariadb: '10.2'
+services:
+    - mysql
 
 env:
     global:
@@ -75,6 +77,16 @@ matrix:
             php: 7.3
             env:
                 - PIMCORE_SKELETON_BRANCH="tags/v1.3.0"
+        -   name: "Codeception Tests (Pimcore 6.0.x, PHP 7.2)"
+            sudo: required
+            php: 7.2
+            env:
+                - PIMCORE_SKELETON_BRANCH="tags/v2.0.0"
+        -   name: "Codeception Tests (Pimcore 6.0.x, PHP 7.3)"
+            sudo: required
+            php: 7.3
+            env:
+                - PIMCORE_SKELETON_BRANCH="tags/v2.0.0"
     allow_failures:
         -   env:
                 - PIMCORE_SKELETON_BRANCH="tags/v1.3.0"
