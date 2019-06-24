@@ -10,9 +10,9 @@ class InkyNode extends Node
     /**
      * InkyNode constructor.
      *
-     * @param Node $body
-     * @param array     $lineno
-     * @param string    $tag
+     * @param Node   $body
+     * @param array  $lineno
+     * @param string $tag
      */
     public function __construct(Node $body, $lineno, $tag = 'inky')
     {
