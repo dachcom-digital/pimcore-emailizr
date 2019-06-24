@@ -14,7 +14,7 @@
 
 ```json
 "require" : {
-    "dachcom-digital/emailizr" : "~1.0.0",
+    "dachcom-digital/emailizr" : "~1.1.0",
 }
 ```
 
@@ -95,11 +95,13 @@ class YourClass
 
     }
 }
-
 ```
 
 ### Further Information
 - [Use Emailizr with FormBuilder](docs/10_FormBuilder.md)
+
+## Upgrade Info
+Before updating, please [check our upgrade notes!](UPGRADE.md)
 
 ## Thanks
 - Thanks to [ZurbInk Bundle](https://github.com/thampe/ZurbInkBundle) for pointing the right direction.
