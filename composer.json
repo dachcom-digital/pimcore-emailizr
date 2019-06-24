@@ -2,7 +2,7 @@
     "name": "dachcom-digital/emailizr",
     "type": "pimcore-bundle",
     "license": "GPL-3.0-or-later",
-    "description": "Pimcore 5 Emailizr - create HTML E-Mails the right way!",
+    "description": "Pimcore Emailizr - create html emails the right way!",
     "keywords": ["pimcore", "email", "inky", "inline style"],
     "homepage": "https://github.com/dachcom-digital/pimcore-emailizr",
     "authors": [

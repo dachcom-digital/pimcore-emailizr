@@ -1,5 +1,4 @@
 # Pimcore Emailizr
-Pimcore 5.0 Emailizr.
 
 [![Join the chat at https://gitter.im/pimcore/pimcore](https://img.shields.io/gitter/room/pimcore/pimcore.svg?style=flat-square)](https://gitter.im/pimcore/pimcore)
 [![Software License](https://img.shields.io/badge/license-GPLv3-brightgreen.svg?style=flat-square)](LICENSE.md)
@@ -9,6 +8,7 @@ Pimcore 5.0 Emailizr.
 
 #### Requirements
 * Pimcore >= 5.4.0
+* Pimcore >= 6.0.0
 
 ## Installation
 
