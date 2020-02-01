@@ -45,7 +45,7 @@ done
 
 ## add legacy config file
 if [[ $DACHCOM_ADD_LEGACY_CONFIG == "true" ]]; then
-    cp _legacy.yml app/config/_legacy.yml
+    cp ./_etc/config/system/_legacy.yml app/config/_legacy.yml
     sed -i '/imports:/a\    - { resource: _legacy.yml }' app/config/config.yml
 fi
 
