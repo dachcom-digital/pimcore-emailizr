@@ -43,6 +43,12 @@ do
     cp $K ${DACHCOM_INSTALL_CONFIG_FILES[$K]};
 done
 
+## add legacy config file
+if [[ $DACHCOM_ADD_LEGACY_CONFIG == "true" ]]; then
+    cp _legacy.yml app/config/_legacy.yml
+    sed -i '/imports:/a\    - { resource: _legacy.yml }' app/config/config.yml
+fi
+
 ##  install composer dependencies
 rm composer.lock
 
