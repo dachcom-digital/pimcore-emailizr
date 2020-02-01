@@ -28,7 +28,7 @@
         }
     },
     "require": {
-        "pimcore/pimcore": "^5.4.0 | ^6.0.0",
+        "pimcore/pimcore": "^5.4.0 | ^6.3.0",
         "lorenzo/pinky":"^1.0.3",
         "pelago/emogrifier": "^3.1.0"
     },
