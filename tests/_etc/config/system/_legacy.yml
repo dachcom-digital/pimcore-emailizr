@@ -1,4 +1,4 @@
-^services:
+services:
     _defaults:
         public: true
 
