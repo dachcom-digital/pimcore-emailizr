@@ -1,5 +1,8 @@
 # Upgrade Notes
 
+#### Update from Version 1.2.0 to Version 1.2.1
+- Pimcore 6.5.0 ready
+
 #### Update from Version 1.1.x to Version 1.2.0
 - Pimcore 6.4.0 ready
 - PHP 7.4 Support (https://github.com/dachcom-digital/pimcore-emailizr/issues/16)
