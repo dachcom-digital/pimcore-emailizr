@@ -2,10 +2,10 @@
 
 use DachcomBundle\Test\Util\Autoloader;
 
-require_once PIMCORE_PROJECT_ROOT . '/vendor/autoload.php';
-
 define('PIMCORE_PROJECT_ROOT', realpath(getcwd()));
 define('PIMCORE_TEST', true);
+
+require_once PIMCORE_PROJECT_ROOT . '/vendor/autoload.php';
 
 /**
  * @var $loader \Composer\Autoload\ClassLoader
