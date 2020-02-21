@@ -87,10 +87,10 @@ matrix:
                 - PIMCORE_PHP_ERROR_REPORTING=30711 # E_ALL & ~E_NOTICE & ~E_STRICT
                 - PIMCORE_SKELETON_BRANCH="tags/v2.3.0"
         -   name: "Codeception Tests (Pimcore 6.4.x, PHP 7.3)"
-                sudo: required
-                php: 7.3
-                env:
-                    - PIMCORE_SKELETON_BRANCH="tags/v2.4.0"
+            sudo: required
+            php: 7.3
+            env:
+                - PIMCORE_SKELETON_BRANCH="tags/v2.4.0"
         -   name: "Codeception Tests (Pimcore 6.5.x, PHP 7.3)"
             sudo: required
             php: 7.3
