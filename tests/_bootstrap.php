@@ -3,6 +3,7 @@
 use DachcomBundle\Test\Util\Autoloader;
 
 define('PIMCORE_PROJECT_ROOT', realpath(getcwd()));
+define('PIMCORE_TEST', true);
 
 require_once PIMCORE_PROJECT_ROOT . '/vendor/autoload.php';
 
@@ -16,4 +17,10 @@ if (!defined('TESTS_PATH')) {
     define('TESTS_PATH', __DIR__);
 }
 
-define('PIMCORE_TEST', true);
+if (!isset($_SERVER['REQUEST_URI'])) {
+    $_SERVER['REQUEST_URI'] = '';
+}
+
+if (!isset($_SERVER['HTTP_USER_AGENT'])) {
+    $_SERVER['HTTP_USER_AGENT'] = '';
+}
