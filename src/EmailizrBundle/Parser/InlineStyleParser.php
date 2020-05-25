@@ -2,30 +2,21 @@
 
 namespace EmailizrBundle\Parser;
 
-use Pelago\Emogrifier;
+use Pelago\Emogrifier\CssInliner;
 use Pimcore\Http\Request\Resolver\EditmodeResolver;
 
 class InlineStyleParser
 {
-    /**
-     * @var Emogrifier
-     */
-    protected $emogrifier;
-
     /**
      * @var EditmodeResolver
      */
     protected $editmodeResolver;
 
     /**
-     * EmailParser constructor.
-     *
-     * @param Emogrifier       $emogrifier
      * @param EditmodeResolver $editmodeResolver
      */
-    public function __construct(Emogrifier $emogrifier, EditmodeResolver $editmodeResolver)
+    public function __construct(EditmodeResolver $editmodeResolver)
     {
-        $this->emogrifier = $emogrifier;
         $this->editmodeResolver = $editmodeResolver;
     }
 
@@ -42,13 +33,12 @@ class InlineStyleParser
             return $html;
         }
 
-        $this->emogrifier->setHtml($html);
-        $this->emogrifier->setCss($css);
+        $inliner = CssInliner::fromHtml($html)->inlineCss($css);
 
         if ($onlyBodyContent) {
-            $mergedHtml = $this->emogrifier->emogrifyBodyContent();
+            $mergedHtml = $inliner->renderBodyContent();
         } else {
-            $mergedHtml = $this->emogrifier->emogrify();
+            $mergedHtml = $inliner->render();
         }
 
         //replace %DataObject(member_id,%7B'method'%20:%20'getResetHash'%7D); placeholder
