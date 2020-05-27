@@ -8,7 +8,7 @@
 
 #### Requirements
 * Pimcore >= 5.4.0
-* Pimcore >= 6.0.0
+* Pimcore >= 6.3.0
 
 ## Installation
 

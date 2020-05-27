@@ -62,24 +62,6 @@ matrix:
             env:
                 - SYMFONY_VERSION="^3.4"
                 - PIMCORE_SKELETON_BRANCH="tags/v1.3.0"
-        -   name: "Codeception Tests (Pimcore 6.0.x, PHP 7.3)"
-            sudo: required
-            php: 7.3
-            env:
-                - SYMFONY_VERSION="~4.3.0"
-                - PIMCORE_SKELETON_BRANCH="tags/v2.0.0"
-        -   name: "Codeception Tests (Pimcore 6.1.x, PHP 7.3)"
-            sudo: required
-            php: 7.3
-            env:
-                - SYMFONY_VERSION="~4.3.0"
-                - PIMCORE_SKELETON_BRANCH="tags/v2.1.0"
-        -   name: "Codeception Tests (Pimcore 6.2.x, PHP 7.3)"
-            sudo: required
-            php: 7.3
-            env:
-                - SYMFONY_VERSION="~4.3.0"
-                - PIMCORE_SKELETON_BRANCH="tags/v2.2.0"
         -   name: "Codeception Tests (Pimcore 6.3.x, PHP 7.3)"
             sudo: required
             php: 7.3

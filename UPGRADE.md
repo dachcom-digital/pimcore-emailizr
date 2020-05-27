@@ -1,5 +1,9 @@
 # Upgrade Notes
 
+#### Update from Version 1.2.x to Version 1.3.0
+- Pimcore 6.6.0 ready
+- Replace Emogrifier class with recommended [@aarongerig](https://github.com/dachcom-digital/pimcore-emailizr/pull/20)
+
 #### Update from Version 1.2.0 to Version 1.2.1
 - Pimcore 6.5.0 ready
 
