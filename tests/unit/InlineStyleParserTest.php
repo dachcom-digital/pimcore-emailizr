@@ -4,7 +4,6 @@ namespace DachcomBundle\Test\unit;
 
 use DachcomBundle\Test\Test\DachcomBundleTestCase;
 use EmailizrBundle\Parser\InlineStyleParser;
-use Pelago\Emogrifier;
 use Pimcore\Http\Request\Resolver\EditmodeResolver;
 
 class InlineStyleParserTest extends DachcomBundleTestCase
@@ -23,7 +22,7 @@ class InlineStyleParserTest extends DachcomBundleTestCase
             ->method('isEditmode')
             ->willReturn(false);
 
-        $this->inlineStyleParser = new InlineStyleParser(new Emogrifier(), $editmodeResolver);
+        $this->inlineStyleParser = new InlineStyleParser($editmodeResolver);
     }
 
     public function testParseInlineHtml()

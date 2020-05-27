@@ -7,7 +7,6 @@ use EmailizrBundle\Parser\InlineStyleParser;
 use EmailizrBundle\Twig\Extension\InkyExtension;
 use EmailizrBundle\Twig\Extension\InlineStyleExtension;
 use EmailizrBundle\Twig\Parser\InlineStyleTokenParser;
-use Pelago\Emogrifier;
 use Pimcore\Http\Request\Resolver\EditmodeResolver;
 use Symfony\Component\HttpKernel\Config\FileLocator;
 use Twig\TwigFunction;
@@ -28,7 +27,7 @@ class TwigInlineStyleExtensionTest extends DachcomBundleTestCase
             ->method('isEditmode')
             ->willReturn(false);
 
-        $inlineStyleParser = new InlineStyleParser(new Emogrifier(), $editmodeResolver);
+        $inlineStyleParser = new InlineStyleParser($editmodeResolver);
 
         $this->extension = new InlineStyleExtension($inlineStyleParser, $fileLocator);
     }
