@@ -14,7 +14,7 @@
 
 ```json
 "require" : {
-    "dachcom-digital/emailizr" : "~1.2.0",
+    "dachcom-digital/emailizr" : "~1.3.0",
 }
 ```
 
