@@ -13,13 +13,11 @@
             "role": "Developer"
         }
     ],
-
     "autoload": {
         "psr-4": {
             "EmailizrBundle\\": "src/EmailizrBundle"
         }
     },
-
     "extra": {
         "pimcore": {
             "bundles": [
