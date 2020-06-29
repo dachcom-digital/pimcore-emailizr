@@ -1,5 +1,9 @@
 # Upgrade Notes
 
+#### Update from Version 1.3.x to Version 1.4.0
+- Update PhpStan to v0.12
+- Use `pelago/emogrifier` ^4.0 [@aarongerig](https://github.com/dachcom-digital/pimcore-emailizr/pull/21)
+
 #### Update from Version 1.2.x to Version 1.3.0
 - Pimcore 6.6.0 ready
 - Replace Emogrifier class with recommended [@aarongerig](https://github.com/dachcom-digital/pimcore-emailizr/pull/20)
