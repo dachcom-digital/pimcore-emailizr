@@ -52,8 +52,9 @@ fi
 ##  install composer dependencies
 rm composer.lock
 
-## add monolog >= 2 conflict (not supported until symfony 5
-sed -i '0,/{/a \    "conflict": { "monolog/monolog": ">=2" },\' composer.json
+## add monolog >= 2 conflict (not supported until symfony 5)
+## add monolog-bundle 3.6 conflict (https://github.com/pimcore/pimcore/pull/7255)
+sed -i '0,/{/a \    "conflict": { "monolog/monolog": ">=2", "symfony/monolog-bundle": "3.6.0" },\' composer.json
 
 composer config repositories.pimcore-${DACHCOM_BUNDLE_REPO_NAME} '{"type": "path", "url": "./lib/'${DACHCOM_BUNDLE_NAME}'", "options": {"symlink": true}}'
 
