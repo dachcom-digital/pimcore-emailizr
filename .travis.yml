@@ -18,17 +18,17 @@ env:
         - PIMCORE_PHP_ERROR_REPORTING=32767 # E_ALL
 matrix:
     include:
-        -   name: "PHPStan Static Analysis (Pimcore 6.6.x, PHP 7.4)"
+        -   name: "PHPStan Static Analysis (Pimcore 6.8.x, PHP 7.4)"
             sudo: required
             php: 7.4
             env:
-                - PIMCORE_SKELETON_BRANCH="tags/v2.6.0"
+                - PIMCORE_SKELETON_BRANCH="tags/v2.8.0"
                 - DACHCOM_TEST_SECTION=phpstan
-        -   name: "PHP ECS (Pimcore 6.6.x, PHP 7.4)"
+        -   name: "PHP ECS (Pimcore 6.8.x, PHP 7.4)"
             sudo: required
             php: 7.4
             env:
-                - PIMCORE_SKELETON_BRANCH="tags/v2.6.0"
+                - PIMCORE_SKELETON_BRANCH="tags/v2.8.0"
                 - DACHCOM_TEST_SECTION=ecs
         -   name: "Codeception Tests (Pimcore 5.4.x, PHP 7.3)"
             sudo: required
@@ -83,14 +83,20 @@ matrix:
             php: 7.3
             env:
                 - PIMCORE_SKELETON_BRANCH="tags/v2.6.0"
-        -   name: "Codeception Tests (Pimcore 6.6.x, PHP 7.4)"
+        -   name: "Codeception Tests (Pimcore 6.7.x, PHP 7.4)"
             sudo: required
             php: 7.4
             env:
-                - PIMCORE_SKELETON_BRANCH="tags/v2.6.0"
+                - PIMCORE_SKELETON_BRANCH="tags/v2.7.0"
+        -   name: "Codeception Tests (Pimcore 6.8.x, PHP 7.4)"
+            sudo: required
+            php: 7.4
+            env:
+                - PIMCORE_SKELETON_BRANCH="tags/v2.8.0"
+
     allow_failures:
         -   env:
-                - PIMCORE_SKELETON_BRANCH="tags/v2.6.0"
+                - PIMCORE_SKELETON_BRANCH="tags/v2.8.0"
                 - DACHCOM_TEST_SECTION=ecs
     fast_finish: true
 
