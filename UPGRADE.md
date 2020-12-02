@@ -1,5 +1,13 @@
 # Upgrade Notes
 
+#### Update from Version 1.4.1 to Version 2.0.0
+- Allow Pimcore X [@@dpfaffenbauer](https://github.com/dachcom-digital/pimcore-emailizr/pull/27)
+- allow pelago/emogrifier 5.0 (support for PHP 8) [@@dpfaffenbauer](https://github.com/dachcom-digital/pimcore-emailizr/pull/26)
+- remove symfony configuration [@@dpfaffenbauer](https://github.com/dachcom-digital/pimcore-emailizr/pull/25)
+
+#### Update from Version 1.4.0 to Version 1.4.1
+- Allow Pimcore 7 [@@dpfaffenbauer](https://github.com/dachcom-digital/pimcore-emailizr/pull/23)
+
 #### Update from Version 1.3.x to Version 1.4.0
 - Update PhpStan to v0.12
 - Use `pelago/emogrifier` ^4.0 [@aarongerig](https://github.com/dachcom-digital/pimcore-emailizr/pull/21)
