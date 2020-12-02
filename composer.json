@@ -28,7 +28,7 @@
     "require": {
         "pimcore/pimcore": "^5.4.0 | ^6.3.0 | ^7.0.0",
         "lorenzo/pinky": "^1.0.3",
-        "pelago/emogrifier": "^4.0"
+        "pelago/emogrifier": "^4.0 | ^5.0"
     },
     "conflict": {
         "symfony/monolog-bundle": "3.6.0"
