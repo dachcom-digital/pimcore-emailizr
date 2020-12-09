@@ -23,6 +23,9 @@
             "bundles": [
                 "EmailizrBundle\\EmailizrBundle"
             ]
+        },
+        "branch-alias": {
+            "dev-master": "2.0-dev"
         }
     },
     "require": {
