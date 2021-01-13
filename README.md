@@ -3,12 +3,12 @@
 [![Join the chat at https://gitter.im/pimcore/pimcore](https://img.shields.io/gitter/room/pimcore/pimcore.svg?style=flat-square)](https://gitter.im/pimcore/pimcore)
 [![Software License](https://img.shields.io/badge/license-GPLv3-brightgreen.svg?style=flat-square)](LICENSE.md)
 [![Latest Release](https://img.shields.io/packagist/v/dachcom-digital/emailizr.svg?style=flat-square)](https://packagist.org/packages/dachcom-digital/emailizr)
-[![Travis](https://img.shields.io/travis/com/dachcom-digital/pimcore-emailizr/master.svg?style=flat-square)](https://travis-ci.com/dachcom-digital/pimcore-emailizr)
-[![PhpStan](https://img.shields.io/badge/PHPStan-level%202-brightgreen.svg?style=flat-square)](#)
+[![Tests](https://img.shields.io/github/workflow/status/dachcom-digital/pimcore-emailizr/Codeception?style=flat-square&logo=github&label=codeception)](https://github.com/dachcom-digital/pimcore-emailizr/actions?query=workflow%3A%22Codeception%22)
+[![PhpStan](https://img.shields.io/github/workflow/status/dachcom-digital/pimcore-emailizr/PHP%20Stan?style=flat-square&logo=github&label=phpstan%20level%202)](https://github.com/dachcom-digital/pimcore-emailizr/actions?query=workflow%3A%22PHP%20Stan%22)
+
 
 #### Requirements
-* Pimcore >= 5.4.0
-* Pimcore >= 6.3.0
+* Pimcore >= 6.6.0
 
 ## Installation
 
@@ -68,6 +68,7 @@ This will include a markup like this. You may want to change it:
 {% end_emailizr_inline_style %}
 {% endspaceless %}
 ```
+
 ### Service
 If you need to parse values in a custom context, you may use the ContentService.
 
