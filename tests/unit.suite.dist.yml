@@ -2,6 +2,6 @@ actor: UnitTester
 error_level: 'getenv("PIMCORE_PHP_ERROR_REPORTING")'
 modules:
     enabled:
-        - \DachcomBundle\Test\Helper\PimcoreCore:
+        - \Dachcom\Codeception\Helper\PimcoreCore:
             connect_db: true
-        - \DachcomBundle\Test\Helper\Unit
+        - \Dachcom\Codeception\Helper\Unit

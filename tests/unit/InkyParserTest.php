@@ -2,11 +2,11 @@
 
 namespace DachcomBundle\Test\unit;
 
-use DachcomBundle\Test\Test\DachcomBundleTestCase;
+use Dachcom\Codeception\Test\BundleTestCase;
 use EmailizrBundle\Parser\InkyParser;
 use Pimcore\Http\Request\Resolver\EditmodeResolver;
 
-class InkyParserTest extends DachcomBundleTestCase
+class InkyParserTest extends BundleTestCase
 {
     /**
      * @var InkyParser

@@ -2,11 +2,11 @@
 
 namespace DachcomBundle\Test\unit;
 
-use DachcomBundle\Test\Test\DachcomBundleTestCase;
+use Dachcom\Codeception\Test\BundleTestCase;
 use EmailizrBundle\Parser\InlineStyleParser;
 use Pimcore\Http\Request\Resolver\EditmodeResolver;
 
-class InlineStyleParserTest extends DachcomBundleTestCase
+class InlineStyleParserTest extends BundleTestCase
 {
     /**
      * @var InlineStyleParser

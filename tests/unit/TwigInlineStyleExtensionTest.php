@@ -2,7 +2,7 @@
 
 namespace DachcomBundle\Test\unit;
 
-use DachcomBundle\Test\Test\DachcomBundleTestCase;
+use Dachcom\Codeception\Test\BundleTestCase;
 use EmailizrBundle\Parser\InlineStyleParser;
 use EmailizrBundle\Twig\Extension\InkyExtension;
 use EmailizrBundle\Twig\Extension\InlineStyleExtension;
@@ -11,7 +11,7 @@ use Pimcore\Http\Request\Resolver\EditmodeResolver;
 use Symfony\Component\HttpKernel\Config\FileLocator;
 use Twig\TwigFunction;
 
-class TwigInlineStyleExtensionTest extends DachcomBundleTestCase
+class TwigInlineStyleExtensionTest extends BundleTestCase
 {
     /**
      * @var InkyExtension
