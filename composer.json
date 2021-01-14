@@ -18,6 +18,14 @@
             "EmailizrBundle\\": "src/EmailizrBundle"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "": "src/"
+        },
+        "classmap": [
+            "app/TestKernel.php"
+        ]
+    },
     "extra": {
         "pimcore": {
             "bundles": [
@@ -33,13 +41,13 @@
         "lorenzo/pinky": "^1.0.3",
         "pelago/emogrifier": "^4.0 | ^5.0"
     },
-    "conflict": {
-        "symfony/monolog-bundle": "3.6.0"
-    },
     "require-dev": {
-        "codeception/codeception": "~2.3.0",
+        "codeception/codeception": "~2.4.0",
         "phpstan/phpstan": "^0.12",
         "phpstan/phpstan-symfony": "^0.12",
         "symplify/easy-coding-standard": "^5.4"
+    },
+    "conflict": {
+        "symfony/monolog-bundle": "3.6.0"
     }
 }

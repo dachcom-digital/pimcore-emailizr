@@ -2,9 +2,9 @@
 
 namespace DachcomBundle\Test\unit;
 
-use DachcomBundle\Test\Test\DachcomBundleTestCase;
+use Dachcom\Codeception\Test\BundleTestCase;
 
-class CssCollectorTest extends DachcomBundleTestCase
+class CssCollectorTest extends BundleTestCase
 {
     public function testOne()
     {
