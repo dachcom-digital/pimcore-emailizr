@@ -8,7 +8,7 @@ Get FormBuilder [here](https://github.com/dachcom-digital/pimcore-formbuilder).
 - add your inky data, for example:
 
 ```twig
-{% spaceless %}
+{% apply spaceless %}
 {{ emailizr_style_collector.add('@YourBundle/Resources/public/css/style.css') }}
 {% emailizr_inline_style %}
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -66,14 +66,14 @@ Get FormBuilder [here](https://github.com/dachcom-digital/pimcore-formbuilder).
 {% end_emailizr_inky %}
 </html>
 {% end_emailizr_inline_style %}
-{% endspaceless %}
+{% endapply %}
 ```
 
 - copy `FormBuilder/Resources/views/Email/formData.html.twig` to `app/Resources/FormBuilderBundle/views/Email/formData.html.twig`
 - add your inky data, for example:
 
 ```twig
-{% spaceless %}
+{% apply spaceless %}
 
     {{ emailizr_style_collector.add('@YourBundle/Resources/public/css/style.css') }}
 
@@ -109,12 +109,12 @@ Get FormBuilder [here](https://github.com/dachcom-digital/pimcore-formbuilder).
 
     {% end_emailizr_inline_style %}
 
-{% endspaceless %}
+{% endapply %}
 ```
 
 2. **Optional**: Using context service to modifiy mail parameter
 
-Since you already have parsed all email templates via twig, everything should be fine. 
+Since you already have parsed all email templates via twig, everything should be fine.
 It's possible, however, to modify the formdata via the content service:
 
 
@@ -124,7 +124,7 @@ services:
     _defaults:
         autowire: true
         public: false
-        
+
     AppBundle\EventListener\FormBuilderMailListener:
         tags:
             - { name: kernel.event_subscriber }
@@ -162,7 +162,7 @@ class FormBuilderMailListener implements EventSubscriberInterface
     {
         $mail = $event->getEmail();
         $cssFile = PIMCORE_WEB_ROOT . '/static/css/email.css';
-        
+
         foreach ($mail->getParams() as $key => $value) {
             $fragment = $this->contentService->checkContent($value, $cssFile, FALSE, TRUE, TRUE);
             $mail->setParam($key, $fragment);
