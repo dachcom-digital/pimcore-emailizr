@@ -1,5 +1,5 @@
 bundles:
     - { namespace: \EmailizrBundle\EmailizrBundle }
 setup_files:
-    - { path: app/config.yml, dest: ./app/config/config.yml }
+    - { path: app/config.yml, dest: ./config/config.yaml }
     - { path: app/system.yml, dest: ./var/config/system.yml }

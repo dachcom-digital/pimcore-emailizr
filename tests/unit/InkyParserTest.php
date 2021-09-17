@@ -13,7 +13,7 @@ class InkyParserTest extends BundleTestCase
      */
     private $inkyParser;
 
-    public function setUp()
+    public function setUp(): void
     {
         $editmodeResolver = $this->getMockBuilder(EditmodeResolver::class)->disableOriginalConstructor()->getMock();
 

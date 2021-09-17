@@ -15,7 +15,7 @@ class TwigInkyExtensionTest extends BundleTestCase
      */
     protected $extension;
 
-    public function setUp()
+    public function setUp(): void
     {
         $editmodeResolver = $this->getMockBuilder(EditmodeResolver::class)->disableOriginalConstructor()->getMock();
 
@@ -30,7 +30,7 @@ class TwigInkyExtensionTest extends BundleTestCase
 
     public function testGetTokenParsers()
     {
-        $this->assertInternalType('array', $this->extension->getTokenParsers());
+        $this->assertIsArray($this->extension->getTokenParsers());
         $this->assertInstanceOf(InkyTokenParser::class, $this->extension->getTokenParsers()[0]);
     }
 

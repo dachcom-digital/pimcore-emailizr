@@ -13,7 +13,7 @@ class InlineStyleParserTest extends BundleTestCase
      */
     private $inlineStyleParser;
 
-    public function setUp()
+    public function setUp(): void
     {
         $editmodeResolver = $this->getMockBuilder(EditmodeResolver::class)->disableOriginalConstructor()->getMock();
 
