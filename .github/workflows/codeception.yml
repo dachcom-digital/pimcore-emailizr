@@ -17,7 +17,7 @@ jobs:
             PIMCORE_CODECEPTION_FRAMEWORK: "${{ github.workspace }}/pimcore-codeception-framework"
             PIMCORE_CODECEPTION_VERSION: "2.0"
 
-            PIMCORE_ENVIRONMENT: test
+            APP_ENV: test
             PIMCORE_TEST_DB_DSN: "mysql://root:root@localhost/dachcom_bundle_test"
             PIMCORE_TEST_URL: "http://localhost"
             PIMCORE_CLASS_DIRECTORY: "${{ github.workspace }}/lib/test-bundle/tests/_output/var/classes/DataObject"
