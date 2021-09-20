@@ -117,7 +117,6 @@ Get FormBuilder [here](https://github.com/dachcom-digital/pimcore-formbuilder).
 Since you already have parsed all email templates via twig, everything should be fine. 
 It's possible, however, to modify the formdata via the content service:
 
-
 2.1. Set an Event Listener
 ```yaml
 services:
@@ -132,19 +131,19 @@ services:
 ```
 
 2.2 Submit Values to Emailizr Parser
+
 ```php
 <?php
 
 namespace AppBundle\EventListener;
 
 use EmailizrBundle\Service\ContentService;
-use FormBuilderBundle\Event\MailEvent;
-use FormBuilderBundle\FormBuilderEvents;
+use FormBuilderBundle\Event\OutputWorkflow\ChannelSubjectGuardEvent;use FormBuilderBundle\FormBuilderEvents;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class FormBuilderMailListener implements EventSubscriberInterface
 {
-    protected $contentService;
+    protected ContentService $contentService;
 
     public function __construct(ContentService $contentService)
     {
@@ -154,22 +153,26 @@ class FormBuilderMailListener implements EventSubscriberInterface
     public static function getSubscribedEvents()
     {
         return [
-            FormBuilderEvents::FORM_MAIL_PRE_SUBMIT => ['onMailPreSubmit'],
+            FormBuilderEvents::OUTPUT_WORKFLOW_GUARD_SUBJECT_PRE_DISPATCH => ['onMailPreSubmit'],
         ];
     }
 
-    public function onMailPreSubmit(MailEvent $event)
+    public function onMailPreSubmit(ChannelSubjectGuardEvent $event)
     {
-        $mail = $event->getEmail();
+        $mail = $event->getSubject();
+        
+        if(!$mail instanceof \Pimcore\Mail) {
+            return;
+        }
+        
         $cssFile = PIMCORE_WEB_ROOT . '/static/css/email.css';
         
         foreach ($mail->getParams() as $key => $value) {
-            $fragment = $this->contentService->checkContent($value, $cssFile, FALSE, TRUE, TRUE);
+            $fragment = $this->contentService->checkContent($value, $cssFile, false, true, true);
             $mail->setParam($key, $fragment);
         }
 
-        $event->setEmail($mail);
-
+        $event->setSubject($mail);
     }
 }
 ```
