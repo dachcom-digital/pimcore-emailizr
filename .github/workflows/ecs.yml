@@ -61,6 +61,7 @@ jobs:
                     mv skeleton/src .
                     mv skeleton/templates .
                     mv skeleton/var .
+                    rm -r skeleton
 
             -   name: Setup Pimcore Codeception Framework
                 env:
@@ -124,7 +125,5 @@ jobs:
             -   name: Easy Coding Standard Check
                 continue-on-error: true
                 run: |
-                    ls -la ${{ github.workspace }}
-                    ls -la ${{ github.workspace }}/lib/test-bundle
                     bin/console cache:warmup --env=test
-                    vendor/bin/ecs check src/EmailizrBundle --config ${{ github.workspace }}/lib/test-bundle/easy-coding-standard.yml
+                    vendor/bin/ecs check ${{ github.workspace }}/lib/test-bundle/src/EmailizrBundle --config ${{ github.workspace }}/lib/test-bundle/easy-coding-standard.yml
