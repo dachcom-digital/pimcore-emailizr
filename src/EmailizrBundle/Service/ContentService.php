@@ -40,7 +40,7 @@ class ContentService
      * @param string|array $css
      * @param bool         $parseInky
      * @param bool         $parseInline
-     * @param bool         $isFragment only parse fragment in inline style
+     * @param bool         $isFragment  only parse fragment in inline style
      *
      * @return mixed|string
      */
