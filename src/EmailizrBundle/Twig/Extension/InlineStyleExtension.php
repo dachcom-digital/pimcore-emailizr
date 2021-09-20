@@ -51,7 +51,7 @@ class InlineStyleExtension extends AbstractExtension implements GlobalsInterface
         ];
     }
 
-    public function includeStyles(array $styles): string
+    public function includeStyles(CssCollector $styles): string
     {
         $style = '';
         foreach ($styles as $styleFile) {
