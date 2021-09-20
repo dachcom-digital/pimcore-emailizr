@@ -24,8 +24,6 @@ class ContentService
     protected $inlineStyleParser;
 
     /**
-     * EmailParser constructor.
-     *
      * @param FileLocator       $fileLocator
      * @param InkyParser        $inkyParser
      * @param InlineStyleParser $inlineStyleParser
@@ -38,11 +36,11 @@ class ContentService
     }
 
     /**
-     * @param string $html
-     * @param array  $css
-     * @param bool   $parseInky
-     * @param bool   $parseInline
-     * @param bool   $isFragment  only parse fragment in inline style
+     * @param string       $html
+     * @param string|array $css
+     * @param bool         $parseInky
+     * @param bool         $parseInline
+     * @param bool         $isFragment only parse fragment in inline style
      *
      * @return mixed|string
      */

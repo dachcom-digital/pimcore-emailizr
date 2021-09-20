@@ -124,5 +124,7 @@ jobs:
             -   name: Easy Coding Standard Check
                 continue-on-error: true
                 run: |
+                    ls -la ${{ github.workspace }}
+                    ls -la ${{ github.workspace }}/lib/test-bundle
                     bin/console cache:warmup --env=test
                     vendor/bin/ecs check src/EmailizrBundle --config ${{ github.workspace }}/lib/test-bundle/easy-coding-standard.yml

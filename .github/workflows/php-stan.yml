@@ -124,4 +124,4 @@ jobs:
             -   name: Php Stan
                 run: |
                     bin/console cache:warmup --env=test
-                    vendor/bin/phpstan analyse -c ${{ github.workspace }}/lib/test-bundle/phpstan.neon -a ${{ github.workspace }}/lib/test-bundle/tests/_phpstan-bootstrap.php src -l 2
+                    vendor/bin/phpstan analyse -c ${{ github.workspace }}/lib/test-bundle/phpstan.neon -a ${{ github.workspace }}/lib/test-bundle/tests/_phpstan-bootstrap.php ${{ github.workspace }}/lib/test-bundle/src -l 2
