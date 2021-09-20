@@ -11,13 +11,13 @@ jobs:
         env:
             TEST_BUNDLE_NAME: "EmailizrBundle"
             TEST_BUNDLE_INSTALLER_CLASS: false
-            TEST_BUNDLE_TEST_DIR: "${{ github.workspace }}/tests"
+            TEST_BUNDLE_TEST_DIR: "${{ github.workspace }}/lib/test-bundle/tests"
             TEST_PROJECT_ROOT_DIR: "${{ github.workspace }}"
 
             PIMCORE_CODECEPTION_FRAMEWORK: "${{ github.workspace }}/pimcore-codeception-framework"
             PIMCORE_CODECEPTION_VERSION: "2.0"
 
-            PIMCORE_ENVIRONMENT: test
+            APP_ENV: test
             PIMCORE_TEST_DB_DSN: "mysql://root:root@localhost/dachcom_bundle_test"
             PIMCORE_TEST_URL: "http://localhost"
 
@@ -48,10 +48,13 @@ jobs:
                         template_tag: v10.1.0
         steps:
             -   uses: actions/checkout@v2
+                with:
+                    path: lib/test-bundle
 
             -   name: Generate Application Structure
                 run: |
                     git clone -b ${{ matrix.template_tag }} --single-branch --depth 1 https://github.com/pimcore/skeleton.git
+                    mv skeleton/composer.json .
                     mv skeleton/bin .
                     mv skeleton/config .
                     mv skeleton/public .
@@ -121,4 +124,4 @@ jobs:
             -   name: Php Stan
                 run: |
                     bin/console cache:warmup --env=test
-                    vendor/bin/phpstan analyse -c phpstan.neon -a tests/_phpstan-bootstrap.php src -l 2
+                    vendor/bin/phpstan analyse -c phpstan.neon -a lib/test-bundle/tests/_phpstan-bootstrap.php src -l 2
