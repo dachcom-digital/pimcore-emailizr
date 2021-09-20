@@ -8,18 +8,19 @@
 
 
 #### Requirements
-* Pimcore >= 6.6.0
+* Pimcore >= 10.1.0
+* PHP >= 8.0
 
 ## Installation
 
 ```json
 "require" : {
-    "dachcom-digital/emailizr" : "~1.3.0",
+    "dachcom-digital/emailizr" : "~2.0.0",
 }
 ```
 
 - Create valid email markup with inky and inline styles. 
-- Respect editables in pimcore editmode.
+- Respect editables in pimcore edit mode.
 
 ## Usage
 Just extend the emailizr layout:
@@ -79,7 +80,7 @@ use EmailizrBundle\Service\ContentService;
 
 class YourClass
 {
-    protected $contentService;
+    protected ContentService $contentService;
 
     public function __construct(ContentService $contentService)
     {
@@ -90,10 +91,7 @@ class YourClass
     {
         $cssFile = PIMCORE_WEB_ROOT . '/static/css/email.css';
 
-        $fragment = $this->contentService->checkContent($content, $cssFile, FALSE, TRUE, TRUE);
-
-        return $fragment;
-
+        return $this->contentService->checkContent($content, $cssFile, FALSE, TRUE, TRUE);
     }
 }
 ```
