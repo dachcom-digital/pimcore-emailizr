@@ -8,46 +8,26 @@ use EmailizrBundle\Twig\Parser\InlineStyleTokenParser;
 use Symfony\Component\HttpKernel\Config\FileLocator;
 use Twig\Extension\AbstractExtension;
 use Twig\Extension\GlobalsInterface;
-use Twig\TokenParser\TokenParserInterface;
 use Twig\TwigFunction;
 
 class InlineStyleExtension extends AbstractExtension implements GlobalsInterface
 {
     const NAME = 'emailizr.inline_style';
 
-    /**
-     * @var InlineStyleParser
-     */
-    protected $inlineStyleParser;
+    protected InlineStyleParser $inlineStyleParser;
+    protected FileLocator $fileLocator;
 
-    /**
-     * @var FileLocator
-     */
-    protected $fileLocator;
-
-    /**
-     * InlineCssExtension constructor.
-     *
-     * @param InlineStyleParser $inlineStyleParser
-     * @param FileLocator       $fileLocator
-     */
     public function __construct(InlineStyleParser $inlineStyleParser, FileLocator $fileLocator)
     {
         $this->inlineStyleParser = $inlineStyleParser;
         $this->fileLocator = $fileLocator;
     }
 
-    /**
-     * @return string
-     */
-    public function getName()
+    public function getName(): string
     {
         return self::NAME;
     }
 
-    /**
-     * @return array
-     */
     public function getGlobals(): array
     {
         return [
@@ -57,32 +37,21 @@ class InlineStyleExtension extends AbstractExtension implements GlobalsInterface
         ];
     }
 
-    /**
-     * @return array|TwigFunction[]
-     */
-    public function getFunctions()
+    public function getFunctions(): array
     {
         return [
             new TwigFunction('emailizr_inline_style', [$this, 'includeStyles'])
         ];
     }
 
-    /**
-     * @return array|TokenParserInterface[]
-     */
-    public function getTokenParsers()
+    public function getTokenParsers(): array
     {
         return [
             new InlineStyleTokenParser()
         ];
     }
 
-    /**
-     * @param array $styles
-     *
-     * @return string
-     */
-    public function includeStyles($styles)
+    public function includeStyles(array $styles): string
     {
         $style = '';
         foreach ($styles as $styleFile) {

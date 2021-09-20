@@ -7,24 +7,12 @@ use Twig\Node\Node;
 
 class InkyNode extends Node
 {
-    /**
-     * InkyNode constructor.
-     *
-     * @param Node   $body
-     * @param array  $lineno
-     * @param string $tag
-     */
-    public function __construct(Node $body, $lineno, $tag = 'inky')
+    public function __construct(Node $body, int $lineno, string $tag = 'inky')
     {
         parent::__construct(['body' => $body], [], $lineno, $tag);
     }
 
-    /**
-     * Compiles the node to PHP.
-     *
-     * @param Compiler $compiler
-     */
-    public function compile(Compiler $compiler)
+    public function compile(Compiler $compiler): void
     {
         $compiler
             ->addDebugInfo($this)

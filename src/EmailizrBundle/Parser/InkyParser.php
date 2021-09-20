@@ -7,14 +7,8 @@ use Pimcore\Http\Request\Resolver\EditmodeResolver;
 
 class InkyParser
 {
-    /**
-     * @var EditmodeResolver
-     */
-    protected $editmodeResolver;
+    protected EditmodeResolver $editmodeResolver;
 
-    /**
-     * @param EditmodeResolver $editmodeResolver
-     */
     public function __construct(EditmodeResolver $editmodeResolver)
     {
         $this->editmodeResolver = $editmodeResolver;

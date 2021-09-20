@@ -12,9 +12,6 @@ class EmailizrBundle extends AbstractPimcoreBundle
 
     const PACKAGE_NAME = 'dachcom-digital/emailizr';
 
-    /**
-     * @param ContainerBuilder $container
-     */
     public function build(ContainerBuilder $container)
     {
         parent::build($container);

@@ -7,22 +7,12 @@ use Twig\Node\Node;
 
 class InlineStyleNode extends Node
 {
-    /**
-     * InlineCssNode constructor.
-     *
-     * @param array  $html
-     * @param int    $line
-     * @param string $tag
-     */
-    public function __construct($html, $line = 0, $tag = 'inlinesytle')
+    public function __construct(Node $html, int $line = 0, string $tag = 'inline_style')
     {
         parent::__construct(['html' => $html], [], $line, $tag);
     }
 
-    /**
-     * @param Compiler $compiler
-     */
-    public function compile(Compiler $compiler)
+    public function compile(Compiler $compiler): void
     {
         $compiler
             ->write("ob_start();\n")

@@ -4,7 +4,6 @@ namespace EmailizrBundle\Twig\Parser;
 
 use EmailizrBundle\Twig\Node\InlineStyleNode;
 use Twig\Error\SyntaxError;
-use Twig\Node\Node;
 use Twig\Token;
 use Twig\TokenParser\AbstractTokenParser;
 
@@ -13,13 +12,9 @@ class InlineStyleTokenParser extends AbstractTokenParser
     const TAG = 'emailizr_inline_style';
 
     /**
-     * @param Token $token
-     *
-     * @return InlineStyleNode|Node
-     *
      * @throws SyntaxError
      */
-    public function parse(Token $token)
+    public function parse(Token $token): InlineStyleNode
     {
         $parser = $this->parser;
         $stream = $parser->getStream();
@@ -30,10 +25,7 @@ class InlineStyleTokenParser extends AbstractTokenParser
         return new InlineStyleNode($html, $token->getLine(), $this->getTag());
     }
 
-    /**
-     * @return string
-     */
-    public function getTag()
+    public function getTag(): string
     {
         return self::TAG;
     }
@@ -43,7 +35,7 @@ class InlineStyleTokenParser extends AbstractTokenParser
      *
      * @return bool
      */
-    public function decideEnd(Token $token)
+    public function decideEnd(Token $token): bool
     {
         return $token->test('end_' . self::TAG);
     }

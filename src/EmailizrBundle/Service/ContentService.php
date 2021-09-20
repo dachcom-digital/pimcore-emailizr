@@ -4,30 +4,15 @@ namespace EmailizrBundle\Service;
 
 use EmailizrBundle\Parser\InkyParser;
 use EmailizrBundle\Parser\InlineStyleParser;
+use Symfony\Component\CssSelector\Exception\ParseException;
 use Symfony\Component\HttpKernel\Config\FileLocator;
 
 class ContentService
 {
-    /**
-     * @var FileLocator
-     */
-    protected $fileLocator;
+    protected FileLocator $fileLocator;
+    protected InkyParser $inkyParser;
+    protected InlineStyleParser $inlineStyleParser;
 
-    /**
-     * @var InkyParser
-     */
-    protected $inkyParser;
-
-    /**
-     * @var InlineStyleParser
-     */
-    protected $inlineStyleParser;
-
-    /**
-     * @param FileLocator       $fileLocator
-     * @param InkyParser        $inkyParser
-     * @param InlineStyleParser $inlineStyleParser
-     */
     public function __construct(FileLocator $fileLocator, InkyParser $inkyParser, InlineStyleParser $inlineStyleParser)
     {
         $this->fileLocator = $fileLocator;
@@ -36,15 +21,9 @@ class ContentService
     }
 
     /**
-     * @param string       $html
-     * @param string|array $css
-     * @param bool         $parseInky
-     * @param bool         $parseInline
-     * @param bool         $isFragment  only parse fragment in inline style
-     *
-     * @return mixed|string
+     * @throws ParseException
      */
-    public function checkContent($html = '', $css = [], $parseInky = true, $parseInline = true, $isFragment = true)
+    public function checkContent(string $html = '', string|array $css = [], bool $parseInky = true, bool $parseInline = true, bool $isFragment = true): string
     {
         //only parse html data.
         if (preg_match('/<[^<]+>/', $html, $m) === 0) {
@@ -67,12 +46,7 @@ class ContentService
         return $html;
     }
 
-    /**
-     * @param array $styles
-     *
-     * @return string
-     */
-    public function includeStyles($styles = [])
+    public function includeStyles(array $styles = []): string
     {
         $style = '';
         foreach ($styles as $styleFile) {
