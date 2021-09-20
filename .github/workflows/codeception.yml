@@ -11,7 +11,7 @@ jobs:
         env:
             TEST_BUNDLE_NAME: "EmailizrBundle"
             TEST_BUNDLE_INSTALLER_CLASS: false
-            TEST_BUNDLE_TEST_DIR: "${{ github.workspace }}/tests"
+            TEST_BUNDLE_TEST_DIR: "${{ github.workspace }}/lib/test-bundle/tests"
             TEST_PROJECT_ROOT_DIR: "${{ github.workspace }}"
 
             PIMCORE_CODECEPTION_FRAMEWORK: "${{ github.workspace }}/pimcore-codeception-framework"
@@ -49,10 +49,13 @@ jobs:
                         template_tag: v10.1.0
         steps:
             -   uses: actions/checkout@v2
+                with:
+                    path: lib/test-bundle
 
             -   name: Generate Application Structure
                 run: |
                     git clone -b ${{ matrix.template_tag }} --single-branch --depth 1 https://github.com/pimcore/skeleton.git
+                    mv skeleton/composer.json .
                     mv skeleton/bin .
                     mv skeleton/config .
                     mv skeleton/public .
