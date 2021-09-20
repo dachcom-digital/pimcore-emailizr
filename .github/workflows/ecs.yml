@@ -125,4 +125,4 @@ jobs:
                 continue-on-error: true
                 run: |
                     bin/console cache:warmup --env=test
-                    vendor/bin/ecs check src/EmailizrBundle --config lib/test-bundle/easy-coding-standard.yml
+                    vendor/bin/ecs check src/EmailizrBundle --config ${{ github.workspace }}/lib/test-bundle/easy-coding-standard.yml
