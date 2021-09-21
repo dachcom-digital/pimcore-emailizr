@@ -11,6 +11,13 @@
 * Pimcore >= 10.1.0
 * PHP >= 8.0
 
+### Release Plan
+
+| Release | Supported Pimcore Versions        | Supported Symfony Versions | Release Date | Maintained     | Branch     |
+|---------|-----------------------------------|----------------------------|--------------|----------------|------------|
+| **2.x** | `10.1`                            | `5.3`                      | 21.09.2021   | Feature Branch | dev-master |
+| **1.x** | `6.0` - `6.9`                     | `3.4`, `^4.4`              | 06.12.2017   | No             | 1.x        |
+
 ## Installation
 
 ```json
