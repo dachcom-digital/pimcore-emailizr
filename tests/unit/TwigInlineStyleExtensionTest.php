@@ -18,7 +18,7 @@ class TwigInlineStyleExtensionTest extends BundleTestCase
      */
     protected $extension;
 
-    public function setUp()
+    public function setUp(): void
     {
         $editmodeResolver = $this->getMockBuilder(EditmodeResolver::class)->disableOriginalConstructor()->getMock();
         $fileLocator = $this->getMockBuilder(FileLocator::class)->disableOriginalConstructor()->getMock();
@@ -34,7 +34,7 @@ class TwigInlineStyleExtensionTest extends BundleTestCase
 
     public function testGetTokenParsers()
     {
-        $this->assertInternalType('array', $this->extension->getTokenParsers());
+        $this->assertIsArray( $this->extension->getTokenParsers());
         $this->assertInstanceOf(InlineStyleTokenParser::class, $this->extension->getTokenParsers()[0]);
     }
 

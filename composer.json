@@ -21,10 +21,7 @@
     "autoload-dev": {
         "psr-4": {
             "": "src/"
-        },
-        "classmap": [
-            "app/TestKernel.php"
-        ]
+        }
     },
     "extra": {
         "pimcore": {
@@ -37,17 +34,15 @@
         }
     },
     "require": {
-        "pimcore/pimcore": "^5.4.0 | ^6.3.0 | ^10.0.0",
+        "pimcore/pimcore": "^10.1",
         "lorenzo/pinky": "^1.0.3",
         "pelago/emogrifier": "^4.0 | ^5.0"
     },
     "require-dev": {
-        "codeception/codeception": "~2.4.0",
+        "codeception/codeception": "^4.1",
+        "codeception/module-symfony": "^1.6",
         "phpstan/phpstan": "^0.12",
         "phpstan/phpstan-symfony": "^0.12",
-        "symplify/easy-coding-standard": "^5.4"
-    },
-    "conflict": {
-        "symfony/monolog-bundle": "3.6.0"
+        "symplify/easy-coding-standard": "^9.0"
     }
 }

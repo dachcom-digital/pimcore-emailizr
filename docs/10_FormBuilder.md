@@ -4,11 +4,11 @@ Get FormBuilder [here](https://github.com/dachcom-digital/pimcore-formbuilder).
 
 1. Copy Templates
 
-- copy `FormBuilder/Resources/views/Email/email.html.twig` to `app/Resources/FormBuilderBundle/views/Email/email.html.twig`
+- copy `FormBuilderBundle/Resources/views/email/email.html.twig` to `templates/bundles/FormBuilderBundle/email/email.html.twig`
 - add your inky data, for example:
 
 ```twig
-{% spaceless %}
+{% apply spaceless %}
 {{ emailizr_style_collector.add('@YourBundle/Resources/public/css/style.css') }}
 {% emailizr_inline_style %}
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -66,14 +66,14 @@ Get FormBuilder [here](https://github.com/dachcom-digital/pimcore-formbuilder).
 {% end_emailizr_inky %}
 </html>
 {% end_emailizr_inline_style %}
-{% endspaceless %}
+{% endapply %}
 ```
 
-- copy `FormBuilder/Resources/views/Email/formData.html.twig` to `app/Resources/FormBuilderBundle/views/Email/formData.html.twig`
+- copy `FormBuilder/Resources/views/email/form-data.html.twig` to `templates/bundles/FormBuilderBundle/email/form-data.html.twig`
 - add your inky data, for example:
 
 ```twig
-{% spaceless %}
+{% apply spaceless %}
 
     {{ emailizr_style_collector.add('@YourBundle/Resources/public/css/style.css') }}
 
@@ -109,14 +109,13 @@ Get FormBuilder [here](https://github.com/dachcom-digital/pimcore-formbuilder).
 
     {% end_emailizr_inline_style %}
 
-{% endspaceless %}
+{% endapply %}
 ```
 
 2. **Optional**: Using context service to modifiy mail parameter
 
 Since you already have parsed all email templates via twig, everything should be fine. 
 It's possible, however, to modify the formdata via the content service:
-
 
 2.1. Set an Event Listener
 ```yaml
@@ -125,26 +124,26 @@ services:
         autowire: true
         public: false
         
-    AppBundle\EventListener\FormBuilderMailListener:
+    App\EventListener\FormBuilderMailListener:
         tags:
             - { name: kernel.event_subscriber }
 
 ```
 
 2.2 Submit Values to Emailizr Parser
+
 ```php
 <?php
 
-namespace AppBundle\EventListener;
+namespace App\EventListener;
 
 use EmailizrBundle\Service\ContentService;
-use FormBuilderBundle\Event\MailEvent;
-use FormBuilderBundle\FormBuilderEvents;
+use FormBuilderBundle\Event\OutputWorkflow\ChannelSubjectGuardEvent;use FormBuilderBundle\FormBuilderEvents;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class FormBuilderMailListener implements EventSubscriberInterface
 {
-    protected $contentService;
+    protected ContentService $contentService;
 
     public function __construct(ContentService $contentService)
     {
@@ -154,22 +153,26 @@ class FormBuilderMailListener implements EventSubscriberInterface
     public static function getSubscribedEvents()
     {
         return [
-            FormBuilderEvents::FORM_MAIL_PRE_SUBMIT => ['onMailPreSubmit'],
+            FormBuilderEvents::OUTPUT_WORKFLOW_GUARD_SUBJECT_PRE_DISPATCH => ['onMailPreSubmit'],
         ];
     }
 
-    public function onMailPreSubmit(MailEvent $event)
+    public function onMailPreSubmit(ChannelSubjectGuardEvent $event)
     {
-        $mail = $event->getEmail();
+        $mail = $event->getSubject();
+        
+        if(!$mail instanceof \Pimcore\Mail) {
+            return;
+        }
+        
         $cssFile = PIMCORE_WEB_ROOT . '/static/css/email.css';
         
         foreach ($mail->getParams() as $key => $value) {
-            $fragment = $this->contentService->checkContent($value, $cssFile, FALSE, TRUE, TRUE);
+            $fragment = $this->contentService->checkContent($value, $cssFile, false, true, true);
             $mail->setParam($key, $fragment);
         }
 
-        $event->setEmail($mail);
-
+        $event->setSubject($mail);
     }
 }
 ```

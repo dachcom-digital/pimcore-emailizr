@@ -4,15 +4,9 @@ namespace EmailizrBundle\Collector;
 
 class CssCollector implements \IteratorAggregate
 {
-    /**
-     * @var array
-     */
-    protected $cssFiles = [];
+    protected array $cssFiles = [];
 
-    /**
-     * @param string $file
-     */
-    public function add($file)
+    public function add(string $file): void
     {
         $this->cssFiles[] = $file;
     }
@@ -22,10 +16,7 @@ class CssCollector implements \IteratorAggregate
         $this->cssFiles = [];
     }
 
-    /**
-     * @return \ArrayIterator
-     */
-    public function getIterator()
+    public function getIterator(): \ArrayIterator
     {
         return new \ArrayIterator($this->cssFiles);
     }

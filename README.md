@@ -4,22 +4,23 @@
 [![Software License](https://img.shields.io/badge/license-GPLv3-brightgreen.svg?style=flat-square)](LICENSE.md)
 [![Latest Release](https://img.shields.io/packagist/v/dachcom-digital/emailizr.svg?style=flat-square)](https://packagist.org/packages/dachcom-digital/emailizr)
 [![Tests](https://img.shields.io/github/workflow/status/dachcom-digital/pimcore-emailizr/Codeception?style=flat-square&logo=github&label=codeception)](https://github.com/dachcom-digital/pimcore-emailizr/actions?query=workflow%3A%22Codeception%22)
-[![PhpStan](https://img.shields.io/github/workflow/status/dachcom-digital/pimcore-emailizr/PHP%20Stan?style=flat-square&logo=github&label=phpstan%20level%202)](https://github.com/dachcom-digital/pimcore-emailizr/actions?query=workflow%3A%22PHP%20Stan%22)
+[![PhpStan](https://img.shields.io/github/workflow/status/dachcom-digital/pimcore-emailizr/PHP%20Stan?style=flat-square&logo=github&label=phpstan%20level%204)](https://github.com/dachcom-digital/pimcore-emailizr/actions?query=workflow%3A%22PHP%20Stan%22)
 
 
 #### Requirements
-* Pimcore >= 6.6.0
+* Pimcore >= 10.1.0
+* PHP >= 8.0
 
 ## Installation
 
 ```json
 "require" : {
-    "dachcom-digital/emailizr" : "~1.3.0",
+    "dachcom-digital/emailizr" : "~2.0.0",
 }
 ```
 
 - Create valid email markup with inky and inline styles. 
-- Respect editables in pimcore editmode.
+- Respect editables in pimcore edit mode.
 
 ## Usage
 Just extend the emailizr layout:
@@ -79,7 +80,7 @@ use EmailizrBundle\Service\ContentService;
 
 class YourClass
 {
-    protected $contentService;
+    protected ContentService $contentService;
 
     public function __construct(ContentService $contentService)
     {
@@ -90,10 +91,7 @@ class YourClass
     {
         $cssFile = PIMCORE_WEB_ROOT . '/static/css/email.css';
 
-        $fragment = $this->contentService->checkContent($content, $cssFile, FALSE, TRUE, TRUE);
-
-        return $fragment;
-
+        return $this->contentService->checkContent($content, $cssFile, FALSE, TRUE, TRUE);
     }
 }
 ```
@@ -103,8 +101,3 @@ class YourClass
 
 ## Upgrade Info
 Before updating, please [check our upgrade notes!](UPGRADE.md)
-
-## Thanks
-- Thanks to [ZurbInk Bundle](https://github.com/thampe/ZurbInkBundle) for pointing the right direction.
-- Thanks to [Pinky](https://github.com/lorenzo/pinky) for the inky php implementation.
-- Thanks to [Emogrifier](https://github.com/jjriv/emogrifier) for the css inline integration.

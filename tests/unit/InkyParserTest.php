@@ -13,7 +13,7 @@ class InkyParserTest extends BundleTestCase
      */
     private $inkyParser;
 
-    public function setUp()
+    public function setUp(): void
     {
         $editmodeResolver = $this->getMockBuilder(EditmodeResolver::class)->disableOriginalConstructor()->getMock();
 
@@ -38,7 +38,7 @@ class InkyParserTest extends BundleTestCase
         $actualDom->loadHTML($parsedHtml);
         $actualDom->preserveWhiteSpace = false;
 
-        $this->assertEqualXMLStructure($expectedDom->getElementsByTagName('html')->item(0), $actualDom->getElementsByTagName('html')->item(0));
+        $this->assertEqualXMLStructureByCodeception($expectedDom->getElementsByTagName('html')->item(0), $actualDom->getElementsByTagName('html')->item(0));
 
     }
 
@@ -55,7 +55,7 @@ class InkyParserTest extends BundleTestCase
         $actualDom->loadHTML($parsedHtml);
         $actualDom->preserveWhiteSpace = false;
 
-        $this->assertEqualXMLStructure($expectedDom->getElementsByTagName('html')->item(0), $actualDom->getElementsByTagName('html')->item(0));
+        $this->assertEqualXMLStructureByCodeception($expectedDom->getElementsByTagName('html')->item(0), $actualDom->getElementsByTagName('html')->item(0));
     }
 
     private function getSimpleStructure()

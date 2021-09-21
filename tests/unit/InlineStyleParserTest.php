@@ -13,7 +13,7 @@ class InlineStyleParserTest extends BundleTestCase
      */
     private $inlineStyleParser;
 
-    public function setUp()
+    public function setUp(): void
     {
         $editmodeResolver = $this->getMockBuilder(EditmodeResolver::class)->disableOriginalConstructor()->getMock();
 
@@ -38,7 +38,7 @@ class InlineStyleParserTest extends BundleTestCase
         $actualDom->loadHTML($parsedHtml);
         $actualDom->preserveWhiteSpace = false;
 
-        $this->assertEqualXMLStructure($expectedDom->getElementsByTagName('html')->item(0), $actualDom->getElementsByTagName('html')->item(0));
+        $this->assertEqualXMLStructureByCodeception($expectedDom->getElementsByTagName('html')->item(0), $actualDom->getElementsByTagName('html')->item(0));
     }
 
     public function testParseInlineHtmlWithBodyContentOnly()
@@ -54,7 +54,7 @@ class InlineStyleParserTest extends BundleTestCase
         $actualDom->loadHTML($parsedHtml);
         $actualDom->preserveWhiteSpace = false;
 
-        $this->assertEqualXMLStructure($expectedDom->getElementsByTagName('html')->item(0), $actualDom->getElementsByTagName('html')->item(0));
+        $this->assertEqualXMLStructureByCodeception($expectedDom->getElementsByTagName('html')->item(0), $actualDom->getElementsByTagName('html')->item(0));
     }
 
     private function getStructure()

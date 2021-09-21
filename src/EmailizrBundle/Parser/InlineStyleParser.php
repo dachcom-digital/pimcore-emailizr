@@ -4,30 +4,21 @@ namespace EmailizrBundle\Parser;
 
 use Pelago\Emogrifier\CssInliner;
 use Pimcore\Http\Request\Resolver\EditmodeResolver;
+use Symfony\Component\CssSelector\Exception\ParseException;
 
 class InlineStyleParser
 {
-    /**
-     * @var EditmodeResolver
-     */
-    protected $editmodeResolver;
+    protected EditmodeResolver $editmodeResolver;
 
-    /**
-     * @param EditmodeResolver $editmodeResolver
-     */
     public function __construct(EditmodeResolver $editmodeResolver)
     {
         $this->editmodeResolver = $editmodeResolver;
     }
 
     /**
-     * @param string $html
-     * @param string $css
-     * @param bool   $onlyBodyContent
-     *
-     * @return mixed|string
+     * @throws ParseException
      */
-    public function parseInlineHtml($html = '', $css = '', $onlyBodyContent = false)
+    public function parseInlineHtml(string $html = '', string $css = '', bool $onlyBodyContent = false): array|string
     {
         if ($this->editmodeResolver->isEditmode()) {
             return $html;
@@ -47,8 +38,6 @@ class InlineStyleParser
         }, $mergedHtml);
 
         /* remove tabs, spaces, newlines, etc. */
-        $mergedHtml = str_replace(["\r\n", "\r", "\n", "\t", '  ', '    ', '    '], '', $mergedHtml);
-
-        return $mergedHtml;
+        return str_replace(["\r\n", "\r", "\n", "\t", '  ', '    ', '    '], '', $mergedHtml);
     }
 }

@@ -10,45 +10,26 @@ class InkyExtension extends AbstractExtension
 {
     const NAME = 'emailizr.inky';
 
-    /**
-     * @var InkyParser
-     */
-    protected $inkyParser;
+    protected InkyParser $inkyParser;
 
-    /**
-     * InkyExtension constructor.
-     *
-     * @param InkyParser $inkyParser
-     */
     public function __construct(InkyParser $inkyParser)
     {
         $this->inkyParser = $inkyParser;
     }
 
-    /**
-     * @return string
-     */
-    public function getName()
+    public function getName(): string
     {
         return self::NAME;
     }
 
-    /**
-     * @return array
-     */
-    public function getTokenParsers()
+    public function getTokenParsers(): array
     {
         return [
             new InkyTokenParser()
         ];
     }
 
-    /**
-     * @param string $html
-     *
-     * @return mixed|string
-     */
-    public function parse($html)
+    public function parse(string $html): string
     {
         return $this->inkyParser->parseInkyHtml($html);
     }
