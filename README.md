@@ -101,8 +101,3 @@ class YourClass
 
 ## Upgrade Info
 Before updating, please [check our upgrade notes!](UPGRADE.md)
-
-## Thanks
-- Thanks to [ZurbInk Bundle](https://github.com/thampe/ZurbInkBundle) for pointing the right direction.
-- Thanks to [Pinky](https://github.com/lorenzo/pinky) for the inky php implementation.
-- Thanks to [Emogrifier](https://github.com/jjriv/emogrifier) for the css inline integration.

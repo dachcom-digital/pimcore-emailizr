@@ -4,11 +4,11 @@ Get FormBuilder [here](https://github.com/dachcom-digital/pimcore-formbuilder).
 
 1. Copy Templates
 
-- copy `FormBuilder/Resources/views/Email/email.html.twig` to `app/Resources/FormBuilderBundle/views/Email/email.html.twig`
+- copy `FormBuilderBundle/Resources/views/email/email.html.twig` to `templates/bundles/FormBuilderBundle/email/email.html.twig`
 - add your inky data, for example:
 
 ```twig
-{% spaceless %}
+{% apply spaceless %}
 {{ emailizr_style_collector.add('@YourBundle/Resources/public/css/style.css') }}
 {% emailizr_inline_style %}
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -66,14 +66,14 @@ Get FormBuilder [here](https://github.com/dachcom-digital/pimcore-formbuilder).
 {% end_emailizr_inky %}
 </html>
 {% end_emailizr_inline_style %}
-{% endspaceless %}
+{% endapply %}
 ```
 
-- copy `FormBuilder/Resources/views/Email/formData.html.twig` to `app/Resources/FormBuilderBundle/views/Email/formData.html.twig`
+- copy `FormBuilder/Resources/views/email/form-data.html.twig` to `templates/bundles/FormBuilderBundle/email/form-data.html.twig`
 - add your inky data, for example:
 
 ```twig
-{% spaceless %}
+{% apply spaceless %}
 
     {{ emailizr_style_collector.add('@YourBundle/Resources/public/css/style.css') }}
 
@@ -109,7 +109,7 @@ Get FormBuilder [here](https://github.com/dachcom-digital/pimcore-formbuilder).
 
     {% end_emailizr_inline_style %}
 
-{% endspaceless %}
+{% endapply %}
 ```
 
 2. **Optional**: Using context service to modifiy mail parameter
@@ -124,7 +124,7 @@ services:
         autowire: true
         public: false
         
-    AppBundle\EventListener\FormBuilderMailListener:
+    App\EventListener\FormBuilderMailListener:
         tags:
             - { name: kernel.event_subscriber }
 
@@ -135,7 +135,7 @@ services:
 ```php
 <?php
 
-namespace AppBundle\EventListener;
+namespace App\EventListener;
 
 use EmailizrBundle\Service\ContentService;
 use FormBuilderBundle\Event\OutputWorkflow\ChannelSubjectGuardEvent;use FormBuilderBundle\FormBuilderEvents;
