@@ -31,7 +31,7 @@ Just extend the emailizr layout:
 
 This will include a markup like this. You may want to change it:
 ```twig
-{% spaceless %}
+{% apply spaceless %}
 {{ emailizr_style_collector.add('@EmailizrBundle/Resources/public/css/foundation-for-emails/foundation.min.css') }}
 {% emailizr_inline_style %}
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -67,7 +67,7 @@ This will include a markup like this. You may want to change it:
 {% end_emailizr_inky %}
 </html>
 {% end_emailizr_inline_style %}
-{% endspaceless %}
+{% endapply %}
 ```
 
 ### Service
