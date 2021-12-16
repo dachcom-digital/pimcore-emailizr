@@ -2,6 +2,16 @@ imports:
     - { resource: services.yaml }
     - { resource: 'local/' }
 
+doctrine:
+    dbal:
+        connections:
+            default:
+                options:
+                    1002: 'SET SESSION wait_timeout=30;'
+                mapping_types:
+                    enum: string
+                    bit: boolean
+
 pimcore:
     error_handling:
         render_error_document: true
@@ -14,4 +24,4 @@ framework:
     mailer:
         transports:
             main: 'null://null'
-            newsletter: 'null://null'
+            pimcore_newsletter: 'null://null'
