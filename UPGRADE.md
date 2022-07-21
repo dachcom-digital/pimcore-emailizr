@@ -1,5 +1,9 @@
 # Upgrade Notes
 
+## Version 2.0.2
+- Allow Pimcore 11
+- Fix parsing of variables in links (`<a href="{{ variable }}">link</a>`)
+
 ## Version 2.0.1
 - [ENHANCEMENT] PHP 8.1 compatibility [@scrummer](https://github.com/dachcom-digital/pimcore-emailizr/pull/35)
 
