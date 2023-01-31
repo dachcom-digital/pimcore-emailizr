@@ -1,5 +1,8 @@
 # Upgrade Notes
 
+## Version 2.0.3
+- Allow pelago/emogrifier:^7.0
+
 ## Version 2.0.2
 - Allow Pimcore 11
 - Fix parsing of variables in links (`<a href="{{ variable }}">link</a>`)
