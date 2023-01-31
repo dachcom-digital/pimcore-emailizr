@@ -1,7 +1,8 @@
 # Upgrade Notes
 
 ## Version 2.0.3
-- Allow pelago/emogrifier:^7.0
+- Allow `pelago/emogrifier:^7.0`
+- Bump `lorenzo/pinky` to `1.0.9`
 
 ## Version 2.0.2
 - Allow Pimcore 11
