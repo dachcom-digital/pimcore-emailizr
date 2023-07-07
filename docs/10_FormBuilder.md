@@ -24,7 +24,7 @@ Get FormBuilder [here](https://github.com/dachcom-digital/pimcore-formbuilder).
         </style>
     {% endblock %}
 </head>
-{% emailizr_inky %}
+{% apply inky_to_html %}
 
     {% if editmode %}
 
@@ -63,7 +63,7 @@ Get FormBuilder [here](https://github.com/dachcom-digital/pimcore-formbuilder).
         </container>
 
     {% endif %}
-{% end_emailizr_inky %}
+{% endapply %}
 </html>
 {% end_emailizr_inline_style %}
 {% endapply %}
@@ -79,7 +79,7 @@ Get FormBuilder [here](https://github.com/dachcom-digital/pimcore-formbuilder).
 
     {% emailizr_inline_style %}
 
-        {% emailizr_inky %}
+        {% apply inky_to_html %}
 
             <container>
 
@@ -105,7 +105,7 @@ Get FormBuilder [here](https://github.com/dachcom-digital/pimcore-formbuilder).
                 {% endfor %}
             </container>
 
-        {% end_emailizr_inky %}
+        {% endapply %}
 
     {% end_emailizr_inline_style %}
 

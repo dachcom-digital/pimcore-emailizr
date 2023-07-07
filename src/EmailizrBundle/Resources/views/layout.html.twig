@@ -14,24 +14,22 @@
                 </style>
             {% endblock %}
         </head>
-        {% emailizr_inky %}
+        {% apply inky_to_html %}
             <body>
             {% block body %}
-                <table class="body">
-                    <tr>
-                        <td class="center" align="center" valign="top">
-                            <center>
-                                {% block content %}
-                                {% endblock %}
-                            </center>
-                        </td>
-                    </tr>
-                </table>
+                <container>
+                    <row>
+                        <columns small="12" large="12">
+                            {% block content %}
+                            {% endblock %}
+                        </columns>
+                    </row>
+                </container>
                 <!-- prevent Gmail on iOS font size manipulation -->
-            <div style="display:none; white-space:nowrap; font:15px courier; line-height:0;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </div>
+               <div style="display:none; white-space:nowrap; font:15px courier; line-height:0;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </div>
             {% endblock %}
             </body>
-        {% end_emailizr_inky %}
+        {% endapply %}
         </html>
     {% end_emailizr_inline_style %}
 {% endapply %}

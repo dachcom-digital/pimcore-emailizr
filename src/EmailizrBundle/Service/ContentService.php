@@ -9,15 +9,12 @@ use Symfony\Component\HttpKernel\Config\FileLocator;
 
 class ContentService
 {
-    protected FileLocator $fileLocator;
-    protected InkyParser $inkyParser;
-    protected InlineStyleParser $inlineStyleParser;
-
-    public function __construct(FileLocator $fileLocator, InkyParser $inkyParser, InlineStyleParser $inlineStyleParser)
+    public function __construct(
+        protected FileLocator $fileLocator,
+        protected InkyParser $inkyParser,
+        protected InlineStyleParser $inlineStyleParser
+    )
     {
-        $this->fileLocator = $fileLocator;
-        $this->inkyParser = $inkyParser;
-        $this->inlineStyleParser = $inlineStyleParser;
     }
 
     /**
@@ -30,7 +27,7 @@ class ContentService
             return $html;
         }
 
-        if ($parseInky == true) {
+        if ($parseInky === true) {
             $html = $this->inkyParser->parseInkyHtml($html);
         }
 

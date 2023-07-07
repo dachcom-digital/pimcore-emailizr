@@ -1,10 +1,9 @@
 <?php
 
-namespace DachcomBundle\Test\unit;
+namespace DachcomBundle\Test\Unit;
 
-use Dachcom\Codeception\Test\BundleTestCase;
+use Dachcom\Codeception\Support\Test\BundleTestCase;
 use EmailizrBundle\Parser\InlineStyleParser;
-use EmailizrBundle\Twig\Extension\InkyExtension;
 use EmailizrBundle\Twig\Extension\InlineStyleExtension;
 use EmailizrBundle\Twig\Parser\InlineStyleTokenParser;
 use Pimcore\Http\Request\Resolver\EditmodeResolver;
@@ -13,10 +12,7 @@ use Twig\TwigFunction;
 
 class TwigInlineStyleExtensionTest extends BundleTestCase
 {
-    /**
-     * @var InkyExtension
-     */
-    protected $extension;
+    protected InlineStyleExtension $extension;
 
     public function setUp(): void
     {
@@ -27,18 +23,19 @@ class TwigInlineStyleExtensionTest extends BundleTestCase
             ->method('isEditmode')
             ->willReturn(false);
 
-        $inlineStyleParser = new InlineStyleParser($editmodeResolver);
-
-        $this->extension = new InlineStyleExtension($inlineStyleParser, $fileLocator);
+        $this->extension = new InlineStyleExtension(
+            new InlineStyleParser($editmodeResolver),
+            $fileLocator
+        );
     }
 
-    public function testGetTokenParsers()
+    public function testGetTokenParsers(): void
     {
         $this->assertIsArray( $this->extension->getTokenParsers());
         $this->assertInstanceOf(InlineStyleTokenParser::class, $this->extension->getTokenParsers()[0]);
     }
 
-    public function testGetFunctions()
+    public function testGetFunctions(): void
     {
         $this->assertEquals(
             [
@@ -50,5 +47,4 @@ class TwigInlineStyleExtensionTest extends BundleTestCase
             $this->extension->getFunctions()
         );
     }
-
 }

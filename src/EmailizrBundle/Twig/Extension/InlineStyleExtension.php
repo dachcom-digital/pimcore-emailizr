@@ -12,7 +12,7 @@ use Twig\TwigFunction;
 
 class InlineStyleExtension extends AbstractExtension implements GlobalsInterface
 {
-    const NAME = 'emailizr.inline_style';
+    public const NAME = 'emailizr.inline_style';
 
     protected InlineStyleParser $inlineStyleParser;
     protected FileLocator $fileLocator;

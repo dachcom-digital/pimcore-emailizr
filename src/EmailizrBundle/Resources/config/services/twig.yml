@@ -5,10 +5,6 @@ services:
         autoconfigure: true
         public: false
 
-    EmailizrBundle\Twig\Extension\InkyExtension:
-        tags:
-            - { name: twig.extension }
-
     EmailizrBundle\Twig\Extension\InlineStyleExtension:
         tags:
             - { name: twig.extension }

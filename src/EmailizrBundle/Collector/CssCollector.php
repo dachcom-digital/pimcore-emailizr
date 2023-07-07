@@ -11,7 +11,7 @@ class CssCollector implements \IteratorAggregate
         $this->cssFiles[] = $file;
     }
 
-    public function removeAll()
+    public function removeAll(): void
     {
         $this->cssFiles = [];
     }

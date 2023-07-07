@@ -1,17 +1,14 @@
 <?php
 
-namespace DachcomBundle\Test\unit;
+namespace DachcomBundle\Test\Unit;
 
-use Dachcom\Codeception\Test\BundleTestCase;
+use Dachcom\Codeception\Support\Test\BundleTestCase;
 use EmailizrBundle\Parser\InkyParser;
 use Pimcore\Http\Request\Resolver\EditmodeResolver;
 
 class InkyParserTest extends BundleTestCase
 {
-    /**
-     * @var InkyParser
-     */
-    private $inkyParser;
+    private InkyParser $inkyParser;
 
     public function setUp(): void
     {
@@ -25,7 +22,7 @@ class InkyParserTest extends BundleTestCase
         $this->inkyParser = new InkyParser($editmodeResolver);
     }
 
-    public function testParseInkyHtmlSimple()
+    public function testParseInkyHtmlSimple(): void
     {
         $content = $this->getSimpleStructure();
         $parsedHtml = $this->inkyParser->parseInkyHtml($content);
@@ -42,7 +39,7 @@ class InkyParserTest extends BundleTestCase
 
     }
 
-    public function testParseInkyHtmlComplex()
+    public function testParseInkyHtmlComplex(): void
     {
         $content = $this->getExtendedStructure();
         $parsedHtml = $this->inkyParser->parseInkyHtml($content);
@@ -58,7 +55,7 @@ class InkyParserTest extends BundleTestCase
         $this->assertEqualXMLStructureByCodeception($expectedDom->getElementsByTagName('html')->item(0), $actualDom->getElementsByTagName('html')->item(0));
     }
 
-    private function getSimpleStructure()
+    private function getSimpleStructure(): string
     {
         return '<container>
                     <container class="body">
@@ -75,7 +72,7 @@ class InkyParserTest extends BundleTestCase
                 </container>';
     }
 
-    private function getExtendedStructure()
+    private function getExtendedStructure(): string
     {
         return '<container>
                     <container class="body">

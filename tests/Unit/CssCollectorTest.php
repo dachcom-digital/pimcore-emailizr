@@ -1,19 +1,19 @@
 <?php
 
-namespace DachcomBundle\Test\unit;
+namespace DachcomBundle\Test\Unit;
 
-use Dachcom\Codeception\Test\BundleTestCase;
+use Dachcom\Codeception\Support\Test\BundleTestCase;
 
 class CssCollectorTest extends BundleTestCase
 {
-    public function testOne()
+    public function testOne(): void
     {
         $collector = new \EmailizrBundle\Collector\CssCollector();
         $collector->add('test.css');
         $this->assertCount(1, $collector->getIterator());
     }
 
-    public function testMultiple()
+    public function testMultiple(): void
     {
         $collector = new \EmailizrBundle\Collector\CssCollector();
         $collector->add('test.css');
@@ -22,7 +22,7 @@ class CssCollectorTest extends BundleTestCase
         $this->assertCount(2, $collector->getIterator());
     }
 
-    public function testRemove()
+    public function testRemove(): void
     {
         $collector = new \EmailizrBundle\Collector\CssCollector();
         $collector->add('test.css');

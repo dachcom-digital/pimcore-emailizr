@@ -9,7 +9,7 @@ use Twig\TokenParser\AbstractTokenParser;
 
 class InlineStyleTokenParser extends AbstractTokenParser
 {
-    const TAG = 'emailizr_inline_style';
+    public const TAG = 'emailizr_inline_style';
 
     /**
      * @throws SyntaxError
@@ -30,13 +30,8 @@ class InlineStyleTokenParser extends AbstractTokenParser
         return self::TAG;
     }
 
-    /**
-     * @param Token $token
-     *
-     * @return bool
-     */
     public function decideEnd(Token $token): bool
     {
-        return $token->test('end_' . self::TAG);
+        return $token->test(sprintf('end_%s', self::TAG));
     }
 }

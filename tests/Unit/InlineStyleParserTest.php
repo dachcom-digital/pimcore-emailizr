@@ -1,17 +1,14 @@
 <?php
 
-namespace DachcomBundle\Test\unit;
+namespace DachcomBundle\Test\Unit;
 
-use Dachcom\Codeception\Test\BundleTestCase;
+use Dachcom\Codeception\Support\Test\BundleTestCase;
 use EmailizrBundle\Parser\InlineStyleParser;
 use Pimcore\Http\Request\Resolver\EditmodeResolver;
 
 class InlineStyleParserTest extends BundleTestCase
 {
-    /**
-     * @var InlineStyleParser
-     */
-    private $inlineStyleParser;
+    private InlineStyleParser $inlineStyleParser;
 
     public function setUp(): void
     {
@@ -25,7 +22,7 @@ class InlineStyleParserTest extends BundleTestCase
         $this->inlineStyleParser = new InlineStyleParser($editmodeResolver);
     }
 
-    public function testParseInlineHtml()
+    public function testParseInlineHtml(): void
     {
         $content = $this->getStructure();
         $parsedHtml = $this->inlineStyleParser->parseInlineHtml($content, '.test { width: 100%; }', false);
@@ -41,13 +38,13 @@ class InlineStyleParserTest extends BundleTestCase
         $this->assertEqualXMLStructureByCodeception($expectedDom->getElementsByTagName('html')->item(0), $actualDom->getElementsByTagName('html')->item(0));
     }
 
-    public function testParseInlineHtmlWithBodyContentOnly()
+    public function testParseInlineHtmlWithBodyContentOnly(): void
     {
         $content = $this->getStructure();
         $parsedHtml = $this->inlineStyleParser->parseInlineHtml($content, '.test { width: 100%; }', true);
 
         $expectedDom = new \DomDocument();
-        $expectedDom->loadHTML('<table class="test" style="width: 100%;"><tbody><tr><td>%DataObject(667, {"method" : "getName"});</td></tr></tbody></table>');
+        $expectedDom->loadHTML('<table class="test" style="width: 100%;"><tbody><tr><td>{{ object.myProperty }}</td></tr></tbody></table>');
         $expectedDom->preserveWhiteSpace = false;
 
         $actualDom = new \DomDocument();
@@ -57,7 +54,7 @@ class InlineStyleParserTest extends BundleTestCase
         $this->assertEqualXMLStructureByCodeception($expectedDom->getElementsByTagName('html')->item(0), $actualDom->getElementsByTagName('html')->item(0));
     }
 
-    private function getStructure()
+    private function getStructure(): string
     {
         return '<!DOCTYPE html>
                 <html>
@@ -69,7 +66,7 @@ class InlineStyleParserTest extends BundleTestCase
                             <tbody>
                                 <tr>
                                     <td>
-                                        %DataObject(667, {"method" : "getName"});
+                                        {{ object.myProperty }}
                                     </td>
                                 </tr>
                             </tbody>

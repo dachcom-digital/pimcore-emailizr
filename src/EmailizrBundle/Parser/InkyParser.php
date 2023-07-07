@@ -7,19 +7,11 @@ use Pimcore\Http\Request\Resolver\EditmodeResolver;
 
 class InkyParser
 {
-    protected EditmodeResolver $editmodeResolver;
-
-    public function __construct(EditmodeResolver $editmodeResolver)
+    public function __construct(protected EditmodeResolver $editmodeResolver)
     {
-        $this->editmodeResolver = $editmodeResolver;
     }
 
-    /**
-     * @param string $templateHtml
-     *
-     * @return string
-     */
-    public function parseInkyHtml($templateHtml)
+    public function parseInkyHtml(string $templateHtml): string
     {
         if ($this->editmodeResolver->isEditmode() === false) {
             return Pinky\transformString($templateHtml)->saveHTML();
