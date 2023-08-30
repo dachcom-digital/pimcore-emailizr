@@ -15,7 +15,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "EmailizrBundle\\": "src/EmailizrBundle"
+            "EmailizrBundle\\": "src/"
         }
     },
     "autoload-dev": {
@@ -28,19 +28,16 @@
             "bundles": [
                 "EmailizrBundle\\EmailizrBundle"
             ]
-        },
-        "branch-alias": {
-            "dev-master": "2.0-dev"
         }
     },
     "require": {
-        "pimcore/pimcore": "^10.1 || ^11.0",
-        "lorenzo/pinky": "^1.0.9",
-        "pelago/emogrifier": "^4.0 | ^5.0 | ^6.0 | ^7.0"
+        "pimcore/pimcore": "^11.0",
+        "twig/inky-extra": "^3.0",
+        "pelago/emogrifier": "^7.0"
     },
     "require-dev": {
-        "codeception/codeception": "^4.1",
-        "codeception/module-symfony": "^1.6",
+        "codeception/codeception": "^5.0",
+        "codeception/module-symfony": "^3.1",
         "phpstan/phpstan": "^1.0",
         "phpstan/phpstan-symfony": "^1.0",
         "symplify/easy-coding-standard": "^9.0"

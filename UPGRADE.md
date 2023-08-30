@@ -1,20 +1,15 @@
 # Upgrade Notes
+--
 
-## Version 2.0.3
-- Allow `pelago/emogrifier:^7.0`
-- Bump `lorenzo/pinky` to `1.0.9`
-
-## Version 2.0.2
-- Allow Pimcore 11
-- Fix parsing of variables in links (`<a href="{{ variable }}">link</a>`)
-
-## Version 2.0.1
-- [ENHANCEMENT] PHP 8.1 compatibility [@scrummer](https://github.com/dachcom-digital/pimcore-emailizr/pull/35)
-
-## Migrating from Version 1.x to Version 2.0.0
-- Pimcore X support only
-- PHP 8.0 support only
+## Migrating from Version 2.x to Version 3.0.0
+- Pimcore 11.0 support only
+- PHP >= 8.1 support only
+- [NEW FEATURE][BC BREAK] We're now using the symfony [inky parser](https://twig.symfony.com/doc/2.x/filters/inky_to_html.html) instead of `lorenzo/pinky` (which will be used by twig, but we want to stick with Symfony's recommended stack).
+  - replace `{% emailizr_inky %}` with `{% apply inky_to_html %}`
+  - replace `{% end_emailizr_inky %}` with `{% endapply %}`
+- [BC BREAK] `@Emailizr/layout.html.twig` is using inky markup by default
+- [BC BREAK] Include path `@EmailizrBundle/Resources/public/[...]` changed to `@EmailizrBundle/public/[...]`. Please change your includes accordingly
 
 ***
 
-Emailizr 1.x Upgrade Notes: https://github.com/dachcom-digital/pimcore-emailizr/blob/1.x/UPGRADE.md
+Emailizr 2.x Upgrade Notes: https://github.com/dachcom-digital/pimcore-emailizr/blob/2.x/UPGRADE.md
