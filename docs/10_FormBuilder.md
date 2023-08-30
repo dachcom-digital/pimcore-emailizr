@@ -9,7 +9,7 @@ Get FormBuilder [here](https://github.com/dachcom-digital/pimcore-formbuilder).
 
 ```twig
 {% apply spaceless %}
-{{ emailizr_style_collector.add('@YourBundle/Resources/public/css/style.css') }}
+{{ emailizr_style_collector.add('@YourBundle/public/css/style.css') }}
 {% emailizr_inline_style %}
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -75,7 +75,7 @@ Get FormBuilder [here](https://github.com/dachcom-digital/pimcore-formbuilder).
 ```twig
 {% apply spaceless %}
 
-    {{ emailizr_style_collector.add('@YourBundle/Resources/public/css/style.css') }}
+    {{ emailizr_style_collector.add('@YourBundle/public/css/style.css') }}
 
     {% emailizr_inline_style %}
 

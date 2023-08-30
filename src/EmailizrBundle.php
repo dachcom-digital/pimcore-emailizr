@@ -15,4 +15,9 @@ class EmailizrBundle extends AbstractPimcoreBundle
     {
         return self::PACKAGE_NAME;
     }
+
+    public function getPath(): string
+    {
+        return \dirname(__DIR__);
+    }
 }

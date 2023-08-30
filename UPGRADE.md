@@ -8,6 +8,7 @@
   - replace `{% emailizr_inky %}` with `{% apply inky_to_html %}`
   - replace `{% end_emailizr_inky %}` with `{% endapply %}`
 - [BC BREAK] `@Emailizr/layout.html.twig` is using inky markup by default
+- [BC BREAK] Include path `@EmailizrBundle/Resources/public/[...]` changed to `@EmailizrBundle/public/[...]`. Please change your includes accordingly
 
 ***
 

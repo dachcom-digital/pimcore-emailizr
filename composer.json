@@ -15,7 +15,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "EmailizrBundle\\": "src/EmailizrBundle"
+            "EmailizrBundle\\": "src/"
         }
     },
     "autoload-dev": {

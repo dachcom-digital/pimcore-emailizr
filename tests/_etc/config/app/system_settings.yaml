@@ -21,11 +21,6 @@ pimcore:
             default: '/error'
             localized:
                 en: ''
-                de: ''
-                de_CH: ''
-                de_AT: ''
-                fr_CH: ''
-                fr: ''
     objects:
         versions:
             days: null
