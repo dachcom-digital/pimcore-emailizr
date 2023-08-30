@@ -14,7 +14,7 @@
 
 | Release | Supported Pimcore Versions | Supported Symfony Versions | Release Date | Maintained     | Branch                                                              |
 |---------|----------------------------|----------------------------|--------------|----------------|---------------------------------------------------------------------|
-| **3.x** | `11.0`                     | `^6.2`                     | --           | Feature Branch | master                                                              |
+| **3.x** | `11.0`                     | `^6.2`                     | 30.08.2023   | Feature Branch | master                                                              |
 | **2.x** | `10.1` - `10.6`            | `^5.4`                     | 21.09.2021   | Maintained     | [2.x](https://github.com/dachcom-digital/pimcore-emailizr/tree/2.x) |
 | **1.x** | `6.0` - `6.9`              | `3.4`, `^4.4`              | 06.12.2017   | No             | [1.x](https://github.com/dachcom-digital/pimcore-emailizr/tree/1.x) |
 
