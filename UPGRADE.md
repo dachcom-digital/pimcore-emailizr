@@ -1,5 +1,7 @@
 # Upgrade Notes
---
+
+## Version 3.1
+Starting with 3.1, Emailizr only supports Twig 3.9
 
 ## Migrating from Version 2.x to Version 3.0.0
 - Pimcore 11.0 support only
