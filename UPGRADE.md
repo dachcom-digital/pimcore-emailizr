@@ -1,5 +1,9 @@
 # Upgrade Notes
 
+## Version 2.1
+- Remove Pimcore 11 Support (use Emailizr 3.x instead)
+- Starting with 2.1, Emailizr only supports Twig 3.9
+
 ## Version 2.0.3
 - Allow `pelago/emogrifier:^7.0`
 - Bump `lorenzo/pinky` to `1.0.9`

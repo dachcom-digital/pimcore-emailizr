@@ -9,6 +9,7 @@
 ### Requirements
 * Pimcore >= 10.1.0
 * PHP >= 8.0
+* Twig >= 3.9
 
 ### Release Plan
 
@@ -21,7 +22,7 @@
 
 ```json
 "require" : {
-    "dachcom-digital/emailizr" : "~2.0.0",
+    "dachcom-digital/emailizr" : "~2.1.0",
 }
 ```
 
