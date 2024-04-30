@@ -16,8 +16,7 @@ class InlineStyleTokenParser extends AbstractTokenParser
      */
     public function parse(Token $token): InlineStyleNode
     {
-        $parser = $this->parser;
-        $stream = $parser->getStream();
+        $stream = $this->parser->getStream();
         $stream->expect(Token::BLOCK_END_TYPE);
         $html = $this->parser->subparse([$this, 'decideEnd'], true);
         $stream->expect(Token::BLOCK_END_TYPE);
