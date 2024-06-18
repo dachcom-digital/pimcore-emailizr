@@ -32,7 +32,7 @@
     },
     "require": {
         "pimcore/pimcore": "^11.0",
-        "twig/twig": "^3.9",
+        "twig/twig": "^3.8",
         "twig/inky-extra": "^3.0",
         "pelago/emogrifier": "^7.0"
     },
