@@ -19,8 +19,7 @@ class InlineStyleNode extends Node
     {
         $node = new CaptureNode(
             $this->getNode('html'),
-            $this->getNode('html')->lineno,
-            $this->getNode('html')->tag
+            $this->getNode('html')->lineno
         );
 
         $node->setAttribute('with_blocks', true);

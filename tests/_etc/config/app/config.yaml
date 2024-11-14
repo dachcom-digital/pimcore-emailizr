@@ -3,6 +3,10 @@ imports:
     - { resource: 'local/' }
 
 doctrine:
+    orm:
+        entity_managers:
+            default:
+                connection: default
     dbal:
         connections:
             default:
