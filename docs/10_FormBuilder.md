@@ -143,11 +143,8 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class FormBuilderMailListener implements EventSubscriberInterface
 {
-    protected ContentService $contentService;
-
-    public function __construct(ContentService $contentService)
+    public function __construct(protected ContentService $contentService)
     {
-        $this->contentService = $contentService;
     }
 
     public static function getSubscribedEvents()

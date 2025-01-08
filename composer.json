@@ -1,7 +1,10 @@
 {
     "name": "dachcom-digital/emailizr",
     "type": "pimcore-bundle",
-    "license": "GPL-3.0-or-later",
+    "license": [
+        "GPL-3.0-or-later",
+        "proprietary"
+    ],
     "description": "Pimcore Emailizr - create html emails the right way!",
     "keywords": ["pimcore", "email", "inky", "inline style"],
     "homepage": "https://github.com/dachcom-digital/pimcore-emailizr",
@@ -9,7 +12,7 @@
         {
             "name": "DACHCOM.DIGITAL Stefan Hagspiel",
             "email": "shagspiel@dachcom.ch",
-            "homepage": "http://www.dachcom.com/",
+            "homepage": "https://www.dachcom.com",
             "role": "Developer"
         }
     ],
@@ -31,16 +34,16 @@
         }
     },
     "require": {
-        "pimcore/pimcore": "^11.0",
-        "twig/twig": "^3.9",
+        "pimcore/pimcore": "^11.4",
+        "twig/twig": "^3.14",
         "twig/inky-extra": "^3.0",
         "pelago/emogrifier": "^7.0"
     },
     "require-dev": {
         "codeception/codeception": "^5.0",
         "codeception/module-symfony": "^3.1",
-        "phpstan/phpstan": "^1.0",
-        "phpstan/phpstan-symfony": "^1.0",
-        "symplify/easy-coding-standard": "^9.0"
+        "phpstan/phpstan": "^2.0",
+        "phpstan/phpstan-symfony": "^2.0",
+        "symplify/easy-coding-standard": "~12.2.0"
     }
 }
