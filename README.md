@@ -1,29 +1,30 @@
 # Pimcore Emailizr
 
-[![Join the chat at https://gitter.im/pimcore/pimcore](https://img.shields.io/gitter/room/pimcore/pimcore.svg?style=flat-square)](https://gitter.im/pimcore/pimcore)
 [![Software License](https://img.shields.io/badge/license-GPLv3-brightgreen.svg?style=flat-square)](LICENSE.md)
+[![Software License](https://img.shields.io/badge/license-DCL-white.svg?style=flat-square&color=%23ff5c5c)](LICENSE.md)
 [![Latest Release](https://img.shields.io/packagist/v/dachcom-digital/emailizr.svg?style=flat-square)](https://packagist.org/packages/dachcom-digital/emailizr)
 [![Tests](https://img.shields.io/github/actions/workflow/status/dachcom-digital/pimcore-emailizr/.github/workflows/codeception.yml?branch=master&style=flat-square&logo=github&label=codeception)](https://github.com/dachcom-digital/pimcore-emailizr/actions?query=workflow%3A%22Codeception%22)
 [![PhpStan](https://img.shields.io/github/actions/workflow/status/dachcom-digital/pimcore-dynamic-search/.github/workflows/php-stan.yml?branch=master&style=flat-square&logo=github&label=phpstan%20level%204)](https://github.com/dachcom-digital/pimcore-emailizr/actions?query=workflow%3A%22PHP%20Stan%22)
 
 ### Requirements
-* Pimcore: ^11.0
-* PHP: >= 8.1
-* Twig >= 3.9
+- Pimcore ^11.4
+- PHP >= 8.1
+- Twig >= 3.9
 
 ### Release Plan
 
-| Release | Supported Pimcore Versions | Supported Symfony Versions | Release Date | Maintained     | Branch                                                              |
-|---------|----------------------------|----------------------------|--------------|----------------|---------------------------------------------------------------------|
-| **3.x** | `11.0`                     | `^6.2`                     | 30.08.2023   | Feature Branch | master                                                              |
-| **2.x** | `10.1` - `10.6`            | `^5.4`                     | 21.09.2021   | No             | [2.x](https://github.com/dachcom-digital/pimcore-emailizr/tree/2.x) |
-| **1.x** | `6.0` - `6.9`              | `3.4`, `^4.4`              | 06.12.2017   | No             | [1.x](https://github.com/dachcom-digital/pimcore-emailizr/tree/1.x) |
+| Release   | Supported Pimcore Versions | Supported Symfony Versions | Release Date | Maintained     | Branch                                                              |
+|-----------|----------------------------|----------------------------|--------------|----------------|---------------------------------------------------------------------|
+| **>=3.1** | `11.4`                     | `^6.4`                     | 08.01.2025   | Feature Branch | master                                                              |
+| **3.x**   | `11.0`                     | `^6.2`                     | 30.08.2023   | Feature Branch | master                                                              |
+| **2.x**   | `10.1` - `10.6`            | `^5.4`                     | 21.09.2021   | No             | [2.x](https://github.com/dachcom-digital/pimcore-emailizr/tree/2.x) |
+| **1.x**   | `6.0` - `6.9`              | `3.4`, `^4.4`              | 06.12.2017   | No             | [1.x](https://github.com/dachcom-digital/pimcore-emailizr/tree/1.x) |
 
 ## Installation
 
 ```json
 "require" : {
-    "dachcom-digital/emailizr" : "~3.1.0",
+    "dachcom-digital/emailizr" : "~3.2.0",
 }
 ```
 
@@ -95,11 +96,8 @@ use EmailizrBundle\Service\ContentService;
 
 class YourClass
 {
-    protected ContentService $contentService;
-
-    public function __construct(ContentService $contentService)
+    public function __construct(protected ContentService $contentService)
     {
-        $this->contentService = $contentService;
     }
 
     public function parse($content)
@@ -120,6 +118,6 @@ Before updating, please [check our upgrade notes!](UPGRADE.md)
 ## License
 **DACHCOM.DIGITAL AG**, Löwenhofstrasse 15, 9424 Rheineck, Schweiz  
 [dachcom.com](https://www.dachcom.com), dcdi@dachcom.ch  
-Copyright © 2024 DACHCOM.DIGITAL. All rights reserved.  
+Copyright © 2025 DACHCOM.DIGITAL. All rights reserved.  
 
 For licensing details please visit [LICENSE.md](LICENSE.md)  

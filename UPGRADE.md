@@ -1,6 +1,10 @@
 # Upgrade Notes
 
-## Version 3.1
+## Version 3.2.0
+- Pimcore >= 11.4 Support only
+- [LICENSE] Dual-License with GPL and Dachcom Commercial License (DCL) added
+
+## Version 3.1.0
 Starting with 3.1, Emailizr only supports Twig 3.9
 
 ## Migrating from Version 2.x to Version 3.0.0

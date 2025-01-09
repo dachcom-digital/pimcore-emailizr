@@ -14,13 +14,11 @@ class InlineStyleExtension extends AbstractExtension implements GlobalsInterface
 {
     public const NAME = 'emailizr.inline_style';
 
-    protected InlineStyleParser $inlineStyleParser;
-    protected FileLocator $fileLocator;
-
-    public function __construct(InlineStyleParser $inlineStyleParser, FileLocator $fileLocator)
+    public function __construct(
+        protected InlineStyleParser $inlineStyleParser,
+        protected FileLocator $fileLocator
+    )
     {
-        $this->inlineStyleParser = $inlineStyleParser;
-        $this->fileLocator = $fileLocator;
     }
 
     public function getName(): string

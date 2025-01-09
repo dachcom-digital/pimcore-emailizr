@@ -3,5 +3,6 @@ includes:
 parameters:
     reportUnmatchedIgnoredErrors: false
     symfony:
-        container_xml_path: %currentWorkingDirectory%/var/cache/test/TestKernelTestDebugContainer.xml
+        containerXmlPath: %currentWorkingDirectory%/var/cache/test/TestKernelTestDebugContainer.xml
+        constantHassers: false
     ignoreErrors:
