@@ -1,9 +1,20 @@
 <?php
 
+/*
+ * This source file is available under two different licenses:
+ *   - GNU General Public License version 3 (GPLv3)
+ *   - DACHCOM Commercial License (DCL)
+ * Full copyright and license information is available in
+ * LICENSE.md which is distributed with this source code.
+ *
+ * @copyright  Copyright (c) DACHCOM.DIGITAL AG (https://www.dachcom-digital.com)
+ * @license    GPLv3 and DCL
+ */
+
 namespace EmailizrBundle\Twig\Extension;
 
-use EmailizrBundle\Parser\InlineStyleParser;
 use EmailizrBundle\Collector\CssCollector;
+use EmailizrBundle\Parser\InlineStyleParser;
 use EmailizrBundle\Twig\Parser\InlineStyleTokenParser;
 use Symfony\Component\HttpKernel\Config\FileLocator;
 use Twig\Extension\AbstractExtension;
@@ -17,8 +28,7 @@ class InlineStyleExtension extends AbstractExtension implements GlobalsInterface
     public function __construct(
         protected InlineStyleParser $inlineStyleParser,
         protected FileLocator $fileLocator
-    )
-    {
+    ) {
     }
 
     public function getName(): string
